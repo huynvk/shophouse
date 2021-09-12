@@ -1,6 +1,6 @@
 import React from 'react';
 import StoryContainer from 'stories/Helpers/StoryContainer';
-import VerticalLayout from 'components/Layouts/VerticalLayout';
+import { VerticalLayout } from 'components/Layouts';
 
 export default {
   title: 'Components/VerticalLayout',

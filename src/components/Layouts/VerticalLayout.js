@@ -1,11 +1,12 @@
 import { Box, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%',
+    background: theme.palette.white,
   },
-});
+}));
 
 const VerticalLayout = ({ header, footer, children, ...rest }) => {
   const classes = useStyles();
@@ -19,7 +20,9 @@ const VerticalLayout = ({ header, footer, children, ...rest }) => {
       {...rest}
     >
       {header}
-      <Box flex={1}>{children}</Box>
+      <Box flex={1} style={{ overflow: 'scroll' }}>
+        {children}
+      </Box>
       {footer}
     </Grid>
   );

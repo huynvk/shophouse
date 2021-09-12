@@ -5,11 +5,8 @@ import theme from 'config/theme';
 
 const StoryContainer = ({ width, height, children }) => (
   <ThemeProvider theme={theme}>
-    <Box bgcolor={theme.palette.background.default}>
-      <Container
-        maxWidth={width}
-        style={{ height, backgroundColor: theme.palette.background.default }}
-      >
+    <Box bgcolor={theme.palette.grey[300]}>
+      <Container maxWidth={width} style={{ height }}>
         {children}
       </Container>
     </Box>
