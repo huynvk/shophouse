@@ -44,7 +44,7 @@ const ItemDetails = ({
           <Icon icon='Info' />
         </Row>
         <Row mt={-1} mb={1.5}>
-          <Typography>{statusDetails}</Typography>
+          <Typography color='textSecondary'>{statusDetails}</Typography>
         </Row>
         <Divider />
         <Row>
@@ -62,7 +62,7 @@ const ItemDetails = ({
           <HorizontalSpacer />
           <Box>
             <Typography color='primary'>{shopName}</Typography>
-            <Typography>{shopAddress}</Typography>
+            <Typography color='textSecondary'>{shopAddress}</Typography>
           </Box>
         </Row>
         <Row>
