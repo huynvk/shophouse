@@ -21,7 +21,7 @@ function App() {
         status='SẮP MỞ BÁN'
         statusDetails='Mở bán lúc 11h thứ bảy 05/09/2021'
         price={100000}
-        unit='VNĐ'
+        currency='VNĐ'
         ship='Miễn phí giao hàng cho cư dân Lavita Garden'
         shopName='Shophouse TM 16'
         shopAddress='Block A, Chung cư Lavita Garden'

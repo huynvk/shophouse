@@ -7,7 +7,7 @@ import {
   Divider,
   Footer,
 } from 'components/Layouts';
-import ImageBox from './ImageBox';
+import HeaderImage from './HeaderImage';
 import { Box, Button, Typography } from '@material-ui/core';
 import Icon from 'components/Icons';
 
@@ -17,7 +17,7 @@ const ItemDetails = ({
   status,
   statusDetails,
   price,
-  unit,
+  currency,
   ship,
   shopName,
   shopAddress,
@@ -34,7 +34,7 @@ const ItemDetails = ({
         </Footer>
       }
     >
-      <ImageBox imgUrl={imgUrl} name={name} />
+      <HeaderImage imgUrl={imgUrl} name={name} />
       <PaddedContent>
         <Row>
           <Typography color='primary' variant='h6'>
@@ -50,7 +50,7 @@ const ItemDetails = ({
         <Row>
           <Icon icon='Price' size='lg' />
           <HorizontalSpacer />
-          <Typography>{`${price} ${unit}`}</Typography>
+          <Typography>{`${price} ${currency}`}</Typography>
         </Row>
         <Row>
           <Icon icon='Ship' size='lg' />
@@ -85,7 +85,7 @@ ItemDetails.propTypes = {
   status: PropTypes.string,
   statusDetails: PropTypes.string,
   price: PropTypes.number,
-  unit: PropTypes.string,
+  currency: PropTypes.string,
   ship: PropTypes.string,
   shopName: PropTypes.string,
   shopAddress: PropTypes.string,

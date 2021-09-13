@@ -1,15 +1,14 @@
 import styled from 'styled-components';
-import { Typography, Toolbar, IconButton } from '@material-ui/core';
-
-import { LikeButton, BackButton } from 'components/Buttons';
 import { withMuiTheme } from 'hoc';
+import { VerticalLayout } from './Layouts';
+import { Typography } from '@material-ui/core';
 
 const ImageBoxContainer = styled.div`
   position: relative;
   overflow: hidden;
 
   // @TODO: adjust height based on resolution
-  height: 300px;
+  height: ${({ height }) => height || '300px'};
 
   img {
     width: 100%;
@@ -49,7 +48,7 @@ const ImageBoxContainer = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: ${({ theme }) => theme.spacing(2)};
+    padding: ${({ theme, paddingSize }) => theme.spacing(paddingSize)};
     padding-bottom: ${({ theme }) => theme.spacing(1)};
     box-sizing: border-box;
 
@@ -63,28 +62,33 @@ const ImageBoxContainer = styled.div`
   }
 `;
 
-const ImageBox = ({ theme, imgUrl, name }) => {
+const ImageBox = ({
+  theme,
+  height,
+  imgUrl,
+  name,
+  header,
+  children,
+  headerVariant = 'h1',
+  paddingSize = 2,
+}) => {
   return (
-    <ImageBoxContainer theme={theme}>
+    <ImageBoxContainer theme={theme} height={height} paddingSize={paddingSize}>
       <img src={imgUrl} alt={name} />
       <div className='gradient' />
       <div className='content'>
-        <Toolbar>
-          <IconButton
-            edge='false'
-            aria-label='back'
-            style={{ marginLeft: theme.spacing(-1) }}
-          >
-            <BackButton light />
-          </IconButton>
-        </Toolbar>
-        <div className='spacer' />
-        <div className='info-bar'>
-          <Typography variant='h1' className='expanding'>
-            {name}
-          </Typography>
-          <LikeButton size={2} active />
-        </div>
+        <VerticalLayout
+          noBackground
+          header={header}
+          footer={
+            <div className='info-bar'>
+              <Typography variant={headerVariant} className='expanding'>
+                {name}
+              </Typography>
+              {children}
+            </div>
+          }
+        ></VerticalLayout>
       </div>
     </ImageBoxContainer>
   );

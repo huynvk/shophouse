@@ -25,7 +25,7 @@ const Booking = ({
   theme,
   name,
   price,
-  unit,
+  currency,
   recipientAddress,
   amount,
   recipient,
@@ -87,7 +87,7 @@ const Booking = ({
         <Row>
           <Icon icon='Price' size='lg' />
           <HorizontalSpacer />
-          <Typography color='textSecondary'>{`${price} ${unit}`}</Typography>
+          <Typography color='textSecondary'>{`${price} ${currency}`}</Typography>
         </Row>
         <form noValidate autoComplete='off'>
           <Row>
@@ -139,7 +139,7 @@ const Booking = ({
 Booking.propTypes = {
   name: PropTypes.string,
   price: PropTypes.number,
-  unit: PropTypes.string,
+  currency: PropTypes.string,
   recipientAddress: PropTypes.string,
   amount: PropTypes.number,
   recipient: PropTypes.string,

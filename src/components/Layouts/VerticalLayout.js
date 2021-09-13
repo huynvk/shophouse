@@ -1,14 +1,23 @@
 import { Box, Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
+import classNames from 'classnames';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%',
-    background: theme.palette.white,
+  },
+  withBackground: {
+    background: theme.palette.common.white,
   },
 }));
 
-const VerticalLayout = ({ header, footer, children, ...rest }) => {
+const VerticalLayout = ({
+  header,
+  footer,
+  children,
+  noBackground,
+  ...rest
+}) => {
   const classes = useStyles();
   return (
     <Grid
@@ -16,7 +25,9 @@ const VerticalLayout = ({ header, footer, children, ...rest }) => {
       direction='column'
       justifyContent='flex-start'
       alignItems='stretch'
-      className={classes.root}
+      className={classNames(classes.root, {
+        [classes.withBackground]: !noBackground,
+      })}
       {...rest}
     >
       {header}

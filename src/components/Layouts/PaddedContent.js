@@ -7,12 +7,13 @@ const paddingMap = {
   lg: 3,
 };
 
-const PaddedContent = ({ children, paddingSize = 'md' }) => {
+const PaddedContent = ({ children, paddingSize = 'md', ...props }) => {
   return (
     <Box
       display='flex'
       flexDirection='column'
       padding={paddingMap[paddingSize]}
+      {...props}
     >
       {children}
     </Box>
