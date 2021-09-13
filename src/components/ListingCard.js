@@ -19,8 +19,9 @@ const ListingCard = ({
   status,
   hasLiked,
   ship,
+  ...props
 }) => (
-  <Card>
+  <Card {...props}>
     <CardActionArea>
       <ImageBox
         imgUrl={imgUrl}
