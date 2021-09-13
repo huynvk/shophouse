@@ -20,7 +20,7 @@ const VerticalLayout = ({ header, footer, children, ...rest }) => {
       {...rest}
     >
       {header}
-      <Box flex={1} style={{ overflow: 'scroll' }}>
+      <Box flex={1} style={{ overflow: 'scroll' }} margin={0}>
         {children}
       </Box>
       {footer}

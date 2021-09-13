@@ -5,9 +5,10 @@ import {
   Row,
   HorizontalSpacer,
   Divider,
+  Footer,
 } from 'components/Layouts';
 import ImageBox from './ImageBox';
-import { Box, Typography } from '@material-ui/core';
+import { Box, Button, Typography } from '@material-ui/core';
 import Icon from 'components/Icons';
 
 const ItemDetails = ({
@@ -24,7 +25,15 @@ const ItemDetails = ({
   description,
 }) => {
   return (
-    <VerticalLayout footer={<div style={{ background: 'green' }}>Footer</div>}>
+    <VerticalLayout
+      footer={
+        <Footer>
+          <Button variant='contained' color='primary'>
+            Đặt trước
+          </Button>
+        </Footer>
+      }
+    >
       <ImageBox imgUrl={imgUrl} name={name} />
       <PaddedContent>
         <Row>

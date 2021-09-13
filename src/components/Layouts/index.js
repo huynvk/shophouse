@@ -3,5 +3,13 @@ import VerticalLayout from './VerticalLayout';
 import Row from './Row';
 import HorizontalSpacer from './HorizontalSpacer';
 import Divider from './Divider';
+import Footer from './Footer';
 
-export { PaddedContent, VerticalLayout, Row, HorizontalSpacer, Divider };
+export {
+  PaddedContent,
+  Footer,
+  VerticalLayout,
+  Row,
+  HorizontalSpacer,
+  Divider,
+};
