@@ -70,7 +70,11 @@ const ImageBox = ({ theme, imgUrl, name }) => {
       <div className='gradient' />
       <div className='content'>
         <Toolbar>
-          <IconButton edge='start' aria-label='back'>
+          <IconButton
+            edge='false'
+            aria-label='back'
+            style={{ marginLeft: theme.spacing(-1) }}
+          >
             <BackButton light />
           </IconButton>
         </Toolbar>
