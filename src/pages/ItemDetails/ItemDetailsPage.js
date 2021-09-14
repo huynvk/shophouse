@@ -26,7 +26,7 @@ const useItemData = (props) => {
     setTimeout(() => {
       setItem(mockItemData);
       setLoading(false);
-    }, 2000);
+    }, 500);
   };
 
   useEffect(() => {

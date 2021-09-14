@@ -44,7 +44,7 @@ const useMarketItemList = () => {
     setTimeout(() => {
       setItemList(mockItemList);
       setLoading(false);
-    }, 2000);
+    }, 500);
   };
 
   useEffect(() => {

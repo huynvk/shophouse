@@ -45,18 +45,16 @@ const LinkTab = ({ label, icon, selected, to, ...props }) => {
 };
 
 const homeTabItems = [
-  { label: 'Chợ', icon: 'PriceTags', pageName: 'market', path: '/' },
+  { label: 'Chợ', icon: 'PriceTags', path: '/' },
   {
     label: 'Hoạt động',
     icon: 'DocumentPaper',
-    pageName: 'activities',
     path: '/activities',
   },
-  { label: 'Cửa hàng', icon: 'ShopHouse', pageName: 'store', path: '/store' },
+  { label: 'Cửa hàng', icon: 'ShopHouse', path: '/store' },
   {
     label: 'Tài khoản',
     icon: 'Account',
-    pageName: 'account',
     path: '/account',
   },
 ];
@@ -64,7 +62,7 @@ const homeTabItems = [
 const HomeTabs = () => (
   <Paper square elevation={3}>
     <Box display='flex'>
-      {homeTabItems.map(({ label, icon, pageName, path }, index) => (
+      {homeTabItems.map(({ label, icon, path }, index) => (
         <LinkTab key={index} label={label} icon={icon} to={path} />
       ))}
     </Box>
