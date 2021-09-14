@@ -12,7 +12,7 @@ const HeaderImage = ({ theme, imgUrl, name }) => {
       header={
         <Toolbar>
           <IconButton
-            edge='false'
+            edge={false}
             aria-label='back'
             style={{ marginLeft: theme.spacing(-1) }}
           >

@@ -1,6 +1,6 @@
 import React from 'react';
 import StoryContainer from 'stories/Helpers/StoryContainer';
-import ItemListing from 'screens/ItemListing';
+import ItemListing from 'pages/ItemListing';
 
 export default {
   title: 'Screens/ItemListing',

@@ -1,6 +1,6 @@
 import React from 'react';
 import StoryContainer from 'stories/Helpers/StoryContainer';
-import ItemDetails from 'screens/ItemDetails';
+import ItemDetails from 'pages/ItemDetails';
 
 export default {
   title: 'Screens/ItemDetails',

@@ -39,7 +39,6 @@ const Icon = withMuiTheme(
       return null;
     }
 
-    console.log('color', theme.palette, color, _.get(theme.palette, color));
     const renderColor = _.get(theme.palette, color) || color;
     const renderSize = theme.spacing(sizeMap[size] || size);
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import StoryContainer from 'stories/Helpers/StoryContainer';
-import Booking from 'screens/Booking';
+import Booking from 'pages/Booking';
 
 export default {
   title: 'Screens/Booking',

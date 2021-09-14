@@ -40,7 +40,7 @@ const Booking = ({
         <Box bgcolor='primary.main'>
           <Toolbar color='white'>
             <IconButton
-              edge='false'
+              edge={false}
               aria-label='back'
               style={{ marginLeft: theme.spacing(-2) }}
             >

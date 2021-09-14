@@ -1,4 +1,4 @@
-import ItemDetails from 'screens/ItemDetails';
+import ItemDetails from 'pages/ItemDetails';
 import styled from 'styled-components';
 
 const RootView = styled.div`
