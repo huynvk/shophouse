@@ -1,4 +1,5 @@
 import ItemList from './ItemList';
 import ItemListingScreen from './ItemListingScreen';
+import ItemListingPage from './ItemListingPage';
 
-export { ItemListingScreen, ItemList };
+export { ItemListingScreen, ItemListingPage, ItemList };

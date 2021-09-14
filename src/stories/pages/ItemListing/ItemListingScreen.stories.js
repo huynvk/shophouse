@@ -13,6 +13,12 @@ const Template = (props) => (
   </StoryContainer>
 );
 
+export const Loading = Template.bind({});
+Loading.args = {
+  loading: true,
+  currentPage: 'market',
+};
+
 export const EmptyScreen = Template.bind({});
 EmptyScreen.args = {
   currentPage: 'market',

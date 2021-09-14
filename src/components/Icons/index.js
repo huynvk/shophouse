@@ -12,6 +12,7 @@ import Price from './Price';
 import PriceTags from './PriceTags';
 import Location from './Location';
 import ShopHouse from './ShopHouse';
+import Plus from './Plus';
 
 const mappings = {
   Account,
@@ -24,6 +25,7 @@ const mappings = {
   PriceTags,
   DocumentPaper,
   ShopHouse,
+  Plus,
 };
 const sizeMap = {
   sm: 0.5,
@@ -72,4 +74,5 @@ export {
   PriceTags,
   DocumentPaper,
   ShopHouse,
+  Plus,
 };

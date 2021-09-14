@@ -1,7 +1,11 @@
 import ListingCard from 'components/ListingCard';
-import { Box, Button, makeStyles, Typography } from '@material-ui/core';
+import { Button, makeStyles, Typography } from '@material-ui/core';
 
-const { VerticalLayout, PaddedContent } = require('components/Layouts');
+const {
+  VerticalLayout,
+  PaddedContent,
+  ExpandedBox,
+} = require('components/Layouts');
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,19 +18,19 @@ const CardWithMargin = (props) => {
   return <ListingCard classes={{ root: classes.root }} {...props} />;
 };
 
-const ItemList = ({ items }) => {
+const ItemList = ({ loading, items }) => {
   const renderItemList = (items) => {
+    if (loading) {
+      return (
+        <ExpandedBox>
+          <Typography align='center'>Đang tải...</Typography>
+        </ExpandedBox>
+      );
+    }
+
     if (items === undefined || items.length === 0) {
       return (
-        <Box
-          display='flex'
-          flex={1}
-          justifyContent='center'
-          alignItems='center'
-          margin='center'
-          flexDirection='column'
-          style={{ with: '100%', height: '100%' }}
-        >
+        <ExpandedBox>
           <Typography align='center'>Chưa có mặt hàng nào đăng bán.</Typography>
           <Typography align='center'>
             Đăng bán ngay để trở thành người đầu tiên.
@@ -35,7 +39,7 @@ const ItemList = ({ items }) => {
           <Button variant='contained' color='primary'>
             Đăng bán
           </Button>
-        </Box>
+        </ExpandedBox>
       );
     }
 

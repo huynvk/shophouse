@@ -13,6 +13,11 @@ const Template = (props) => (
   </StoryContainer>
 );
 
+export const Loading = Template.bind({});
+Loading.args = {
+  loading: true,
+};
+
 export const EmptyScreen = Template.bind({});
 EmptyScreen.args = {};
 
