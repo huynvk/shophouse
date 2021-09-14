@@ -56,7 +56,7 @@ const ListingCard = ({
 ListingCard.propTypes = {
   name: PropTypes.string,
   imgUrl: PropTypes.string,
-  price: PropTypes.string,
+  price: PropTypes.number,
   currency: PropTypes.string,
   status: PropTypes.string,
   hasLiked: PropTypes.bool,

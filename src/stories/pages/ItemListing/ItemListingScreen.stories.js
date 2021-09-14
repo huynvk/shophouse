@@ -16,17 +16,13 @@ const Template = (props) => (
 export const Loading = Template.bind({});
 Loading.args = {
   loading: true,
-  currentPage: 'market',
 };
 
 export const EmptyScreen = Template.bind({});
-EmptyScreen.args = {
-  currentPage: 'market',
-};
+EmptyScreen.args = {};
 
 export const WithData = Template.bind({});
 WithData.args = {
-  currentPage: 'market',
   items: [
     {
       id: 1,

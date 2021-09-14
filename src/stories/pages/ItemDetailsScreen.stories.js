@@ -1,15 +1,15 @@
 import React from 'react';
 import StoryContainer from 'stories/Helpers/StoryContainer';
-import ItemDetails from 'pages/ItemDetails';
+import { ItemDetailsScreen } from 'pages/ItemDetails';
 
 export default {
-  title: 'Pages/ItemDetails',
-  component: ItemDetails,
+  title: 'Pages/ItemDetailsScreen',
+  component: ItemDetailsScreen,
 };
 
 const Template = (props) => (
   <StoryContainer width='sm' height='800px'>
-    <ItemDetails {...props} />
+    <ItemDetailsScreen {...props} />
   </StoryContainer>
 );
 

@@ -1,59 +1,74 @@
+import styled from 'styled-components';
+
 import Icon from 'components/Icons';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min';
+import { withMuiTheme } from 'hoc';
 const { Paper, Box, Typography } = require('@material-ui/core');
 
 // This component doesn't use tab from material ui, since it seems too complex
 // Applied a simple solution first
-const Tab = ({ label, icon, selected, ...props }) => {
+
+const StyledLink = withMuiTheme(styled(Link)`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding-top: ${({ theme }) => theme.spacing(1)};
+  padding-bottom: ${({ theme }) => theme.spacing(1)};
+  margin-bottom: ${({ theme }) => theme.spacing(-1)};
+
+  &:hover {
+    background: ${({ theme }) => theme.palette.grey[300]};
+  }
+`);
+
+const LinkTab = ({ label, icon, selected, to, ...props }) => {
+  let match = useRouteMatch({
+    path: to,
+    exact: true,
+  });
   return (
-    <Box
-      flexGrow={1}
-      display='flex'
-      flexDirection='column'
-      alignItems='center'
-      justifyContent='center'
-      {...props}
-    >
+    <StyledLink to={to} {...props}>
       <Icon
         icon={icon}
         size='lg'
-        color={selected ? 'primary.main' : 'text.secondary'}
+        color={match ? 'primary.main' : 'text.secondary'}
       />
-      <Typography
-        color={selected ? 'primary' : 'textSecondary'}
-        variant='caption'
-      >
+      <Typography color={match ? 'primary' : 'textSecondary'} variant='caption'>
         {label}
       </Typography>
-    </Box>
+    </StyledLink>
   );
 };
 
 const homeTabItems = [
-  { label: 'Chợ', icon: 'PriceTags', pageName: 'market' },
-  { label: 'Hoạt động', icon: 'DocumentPaper', pageName: 'activities' },
-  { label: 'Cửa hàng', icon: 'ShopHouse', pageName: 'store' },
-  { label: 'Tài khoản', icon: 'Account', pageName: 'account' },
+  { label: 'Chợ', icon: 'PriceTags', pageName: 'market', path: '/' },
+  {
+    label: 'Hoạt động',
+    icon: 'DocumentPaper',
+    pageName: 'activities',
+    path: '/activities',
+  },
+  { label: 'Cửa hàng', icon: 'ShopHouse', pageName: 'store', path: '/store' },
+  {
+    label: 'Tài khoản',
+    icon: 'Account',
+    pageName: 'account',
+    path: '/account',
+  },
 ];
 
-const HomeTabs = ({ currentPage = '' }) => (
-  <Paper square>
-    <Box display='flex' flexDirectiom='row' pt={0.5} pb={0.5}>
-      {homeTabItems.map(({ label, icon, pageName }, index) => (
-        <Tab
-          key={index}
-          flexGrow={1}
-          label={label}
-          icon={icon}
-          selected={currentPage === pageName}
-        />
+const HomeTabs = () => (
+  <Paper square elevation={3}>
+    <Box display='flex'>
+      {homeTabItems.map(({ label, icon, pageName, path }, index) => (
+        <LinkTab key={index} label={label} icon={icon} to={path} />
       ))}
     </Box>
   </Paper>
 );
-
-HomeTabs.propTypes = {
-  currentPage: PropTypes.oneOf(['market', 'activities', 'store', 'account']),
-};
 
 export default HomeTabs;

@@ -5,9 +5,9 @@ import Icon from 'components/Icons';
 
 const { VerticalLayout } = require('components/Layouts');
 
-const ItemListingScreen = ({ currentPage, items, ...props }) => (
+const ItemListingScreen = ({ items, ...props }) => (
   <>
-    <VerticalLayout footer={<HomeTabs currentPage={currentPage} />}>
+    <VerticalLayout footer={<HomeTabs />}>
       <ItemList items={items} {...props} />
       {items && items.length > 0 && (
         <PositionedFab color='primary' aria-label='add'>

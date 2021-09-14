@@ -1,5 +1,5 @@
 import { BookingPage } from 'pages/Booking';
-import ItemDetails from 'pages/ItemDetails';
+import { ItemDetailsPage } from 'pages/ItemDetails';
 import { ItemListingPage } from 'pages/ItemListing';
 
 const routes = {
@@ -9,7 +9,7 @@ const routes = {
   },
   itemDetail: {
     location: '/item/:id',
-    component: ItemDetails,
+    component: ItemDetailsPage,
   },
   booking: {
     location: '/item/:id/booking',

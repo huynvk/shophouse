@@ -14,6 +14,4 @@ const Template = ({ ...props }) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {
-  currentPage: 'market',
-};
+Default.args = {};
