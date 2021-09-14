@@ -1,15 +1,15 @@
 import React from 'react';
 import StoryContainer from 'stories/Helpers/StoryContainer';
-import Booking from 'pages/Booking';
+import { BookingScreen } from 'pages/Booking';
 
 export default {
-  title: 'Pages/Booking',
-  component: Booking,
+  title: 'Pages/BookingScreen',
+  component: BookingScreen,
 };
 
 const Template = (props) => (
   <StoryContainer width='sm' height='800px'>
-    <Booking {...props} />
+    <BookingScreen {...props} />
   </StoryContainer>
 );
 
