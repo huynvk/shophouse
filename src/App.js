@@ -4,12 +4,6 @@ import styled from 'styled-components';
 const RootView = styled.div`
   width: 100vw;
   height: 100vh;
-
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
 `;
 
 function App() {

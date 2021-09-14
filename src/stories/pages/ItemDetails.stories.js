@@ -3,7 +3,7 @@ import StoryContainer from 'stories/Helpers/StoryContainer';
 import ItemDetails from 'pages/ItemDetails';
 
 export default {
-  title: 'Screens/ItemDetails',
+  title: 'Pages/ItemDetails',
   component: ItemDetails,
 };
 

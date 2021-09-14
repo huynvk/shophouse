@@ -15,5 +15,5 @@ const Template = ({ ...props }) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  selectedIndex: 1,
+  currentPage: 'market',
 };

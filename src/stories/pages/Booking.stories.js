@@ -3,7 +3,7 @@ import StoryContainer from 'stories/Helpers/StoryContainer';
 import Booking from 'pages/Booking';
 
 export default {
-  title: 'Screens/Booking',
+  title: 'Pages/Booking',
   component: Booking,
 };
 

@@ -1,20 +1,23 @@
 import React from 'react';
 import StoryContainer from 'stories/Helpers/StoryContainer';
-import ItemListing from 'pages/ItemListing';
+import { ItemList } from 'pages/ItemListing';
 
 export default {
-  title: 'Screens/ItemListing',
-  component: ItemListing,
+  title: 'Pages/ItemListing/ItemList',
+  component: ItemList,
 };
 
 const Template = (props) => (
   <StoryContainer width='sm' height='800px'>
-    <ItemListing {...props} />
+    <ItemList {...props} />
   </StoryContainer>
 );
 
-export const Default = Template.bind({});
-Default.args = {
+export const EmptyScreen = Template.bind({});
+EmptyScreen.args = {};
+
+export const WithData = Template.bind({});
+WithData.args = {
   items: [
     {
       id: 1,

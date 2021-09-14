@@ -1,3 +1,4 @@
 import withMuiTheme from './withMuiTheme';
+import withCurrentPage from './withCurrentPage';
 
-export { withMuiTheme };
+export { withMuiTheme, withCurrentPage };

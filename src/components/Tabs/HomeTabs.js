@@ -1,4 +1,5 @@
 import Icon from 'components/Icons';
+import PropTypes from 'prop-types';
 const { Paper, Box, Typography } = require('@material-ui/core');
 
 // This component doesn't use tab from material ui, since it seems too complex
@@ -29,26 +30,30 @@ const Tab = ({ label, icon, selected, ...props }) => {
 };
 
 const homeTabItems = [
-  { label: 'Chợ', icon: 'PriceTags' },
-  { label: 'Hoạt động', icon: 'DocumentPaper' },
-  { label: 'Cửa hàng', icon: 'ShopHouse' },
-  { label: 'Tài khoản', icon: 'Account' },
+  { label: 'Chợ', icon: 'PriceTags', pageName: 'market' },
+  { label: 'Hoạt động', icon: 'DocumentPaper', pageName: 'activities' },
+  { label: 'Cửa hàng', icon: 'ShopHouse', pageName: 'store' },
+  { label: 'Tài khoản', icon: 'Account', pageName: 'account' },
 ];
 
-const HomeTabs = ({ selectedIndex }) => (
+const HomeTabs = ({ currentPage = '' }) => (
   <Paper square>
     <Box display='flex' flexDirectiom='row' pt={0.5} pb={0.5}>
-      {homeTabItems.map(({ label, icon }, index) => (
+      {homeTabItems.map(({ label, icon, pageName }, index) => (
         <Tab
           key={index}
           flexGrow={1}
           label={label}
           icon={icon}
-          selected={index === selectedIndex}
+          selected={currentPage === pageName}
         />
       ))}
     </Box>
   </Paper>
 );
+
+HomeTabs.propTypes = {
+  currentPage: PropTypes.oneOf(['market', 'activities', 'store', 'account']),
+};
 
 export default HomeTabs;
