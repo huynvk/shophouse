@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Button, makeStyles, Typography } from '@material-ui/core';
-import { ItemCard } from 'components/Cards';
+import { ShopCard } from 'components/Cards';
 import { PaddedContent, ExpandedBox } from 'components/Layouts';
 import LoadableList from 'components/LoadableList';
 
@@ -12,16 +12,16 @@ const useStyles = makeStyles((theme) => ({
 
 const CardWithMargin = (props) => {
   const classes = useStyles();
-  return <ItemCard classes={{ root: classes.root }} {...props} />;
+  return <ShopCard classes={{ root: classes.root }} {...props} />;
 };
 
-const ItemList = (props) => (
+const ShopList = (props) => (
   <LoadableList
     renderEmptyState={() => (
       <ExpandedBox>
-        <Typography align='center'>Chưa có mặt hàng nào đăng bán.</Typography>
+        <Typography align='center'>Chưa có cửa hàng nào đăng ký.</Typography>
         <Typography align='center'>
-          Đăng bán ngay để trở thành người đầu tiên.
+          Đăng bán ngay để trở thành cửa hàng đầu tiên.
         </Typography>
 
         <Button variant='contained' color='primary'>
@@ -32,16 +32,15 @@ const ItemList = (props) => (
     renderList={({ items }) => (
       <PaddedContent>
         {items.map(
-          ({ id, name, imgUrl, price, currency, status, hasLiked, ship }) => (
+          ({ id, name, address, imgUrl, description, liked, menu }) => (
             <CardWithMargin
               key={id}
               name={name}
               imgUrl={imgUrl}
-              price={price}
-              currency={currency}
-              status={status}
-              hasLiked={hasLiked}
-              ship={ship}
+              address={address}
+              description={description}
+              liked={liked}
+              menu={menu}
             />
           )
         )}
@@ -51,20 +50,25 @@ const ItemList = (props) => (
   />
 );
 
-ItemList.propTypes = {
+ShopList.propTypes = {
   loading: PropTypes.bool,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.any,
       name: PropTypes.string,
+      address: PropTypes.string,
       imgUrl: PropTypes.string,
-      price: PropTypes.number,
-      currency: PropTypes.string,
-      status: PropTypes.string,
-      hasLiked: PropTypes.bool,
-      ship: PropTypes.string,
+      description: PropTypes.string,
+      liked: PropTypes.bool,
+      menu: PropTypes.arrayOf(
+        PropTypes.shape({
+          price: PropTypes.number,
+          name: PropTypes.string,
+          currency: PropTypes.string,
+        })
+      ),
     })
   ),
 };
 
-export default ItemList;
+export default ShopList;

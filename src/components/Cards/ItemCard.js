@@ -6,11 +6,11 @@ import {
   Typography,
 } from '@material-ui/core';
 import Icon from 'components/Icons';
-import { HorizontalSpacer, Row } from './Layouts';
+import { HorizontalSpacer, Row } from '../Layouts';
 import { withMuiTheme } from 'hoc';
-import ImageBox from './ImageBox';
+import ImageBox from '../ImageBox';
 
-const ListingCard = ({
+const ItemCard = ({
   theme,
   name,
   imgUrl,
@@ -53,7 +53,7 @@ const ListingCard = ({
   </Card>
 );
 
-ListingCard.propTypes = {
+ItemCard.propTypes = {
   name: PropTypes.string,
   imgUrl: PropTypes.string,
   price: PropTypes.number,
@@ -63,4 +63,4 @@ ListingCard.propTypes = {
   ship: PropTypes.string,
 };
 
-export default withMuiTheme(ListingCard);
+export default withMuiTheme(ItemCard);

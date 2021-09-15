@@ -2,13 +2,13 @@ import { AccountPage } from 'pages/Account';
 import { ActivitiesPage } from 'pages/Activites';
 import { BookingPage } from 'pages/Booking';
 import { ItemDetailsPage } from 'pages/ItemDetails';
-import { ItemListingPage } from 'pages/ItemListing';
+import { MarketPage } from 'pages/Market';
 import { StorePage } from 'pages/Store';
 
 const routes = {
   market: {
     location: '/',
-    component: ItemListingPage,
+    component: MarketPage,
   },
   itemDetail: {
     location: '/item/:id',
