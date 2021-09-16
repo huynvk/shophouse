@@ -9,13 +9,14 @@ const { VerticalLayout, PaddedContent } = require('components/Layouts');
 
 const MarketPage = () => {
   const { data: shops, loading } = useGet({ path: 'shops' });
-  console.log('data', shops, loading);
 
   return (
     <VerticalLayout
       header={
-        <PaddedContent>
-          <Typography variant='h2'>Chợ Lavita Garden</Typography>
+        <PaddedContent pt={1} pb={0}>
+          <Typography variant='h2' component='h1'>
+            Chợ Lavita Garden
+          </Typography>
         </PaddedContent>
       }
       footer={<HomeTabs />}
