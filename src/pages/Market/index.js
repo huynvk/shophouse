@@ -1,5 +1,4 @@
-import MarketScreen from './MarketScreen';
-import ShopList from './ShopList';
 import MarketPage from './MarketPage';
+import ShopList from './ShopList';
 
-export { MarketScreen, MarketPage, ShopList };
+export { MarketPage, ShopList };

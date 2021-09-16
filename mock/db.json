@@ -3,12 +3,18 @@
     {
       "id": 1,
       "name": "Tạp hoá A7",
-      "address": "Shophouse 16 Lavita Garden"
+      "imgUrl": "https://giaoducnamchau.edu.vn/wp-content/uploads/2021/05/well-foods-microbiome-superJumbo.jpg",
+      "address": "Shophouse 16 Lavita Garden",
+      "description": "Nay mình đã ship Thủ Đức và quận 9 rồi nhé ạ. Cả nhà lên đơn mai mình ship nhé. Menu mình gồm có trà sữa (chai 330ml) và bánh tráng các loại.",
+      "menuCount": 4
     },
     {
       "id": 2,
       "name": "Ăn vặt",
-      "address": "A709 Lavita Garden"
+      "imgUrl": "https://giaoducnamchau.edu.vn/wp-content/uploads/2021/05/well-foods-microbiome-superJumbo.jpg",
+      "address": "A709 Lavita Garden",
+      "description": "Nay mình đã ship Thủ Đức và quận 9 rồi nhé ạ. Cả nhà lên đơn mai mình ship nhé. Menu mình gồm có trà sữa (chai 330ml) và bánh tráng các loại.",
+      "menuCount": 4
     }
   ],
   "items": [

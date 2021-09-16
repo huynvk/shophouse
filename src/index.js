@@ -1,16 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
-import './index.scss';
 import { ThemeProvider } from '@material-ui/core/styles';
+import { RestfulProvider } from 'hooks/restful';
 import theme from 'config/theme';
+import App from './App';
+import './index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
+    <RestfulProvider base='http://localhost:4000'>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </RestfulProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

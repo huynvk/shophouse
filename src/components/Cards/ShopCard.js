@@ -29,6 +29,7 @@ const ShopCard = ({
   description,
   liked = true,
   menu = [],
+  menuCount = 0,
   ...props
 }) => {
   const classes = useStyles();
@@ -72,7 +73,7 @@ const ShopCard = ({
       </Collapse>
       <CardActions disableSpacing>
         <Button color='primary' onClick={handleExpandClick}>
-          {expanded ? 'Thu gọn' : `Xem menu (${menu.length})`}
+          {expanded ? 'Thu gọn' : `Xem menu (${menu.length || menuCount})`}
         </Button>
         <IconButton className={classes.like}>
           <FavoriteIcon color={liked ? 'primary' : 'action'} />
@@ -95,6 +96,7 @@ ShopCard.propTypes = {
       currency: PropTypes.string,
     })
   ),
+  menuCount: PropTypes.number,
 };
 
 export default ShopCard;

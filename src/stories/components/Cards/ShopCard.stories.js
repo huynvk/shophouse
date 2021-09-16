@@ -30,4 +30,5 @@ Default.args = {
     { name: 'Bún bò', price: 30000, currency: 'VNĐ' },
     { name: 'Hủ tiếu', price: 30000, currency: 'VNĐ' },
   ],
+  menuCount: 6,
 };

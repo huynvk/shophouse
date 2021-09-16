@@ -4,16 +4,19 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import theme from 'config/theme';
 import '../../index.scss';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { RestfulMockProvider } from 'hooks/restful';
 
-const StoryContainer = ({ width, height, children }) => (
+const StoryContainer = ({ width, height, children, mock = {} }) => (
   <Router>
-    <ThemeProvider theme={theme}>
-      <Box bgcolor={theme.palette.grey[300]}>
-        <Container maxWidth={width} style={{ height }}>
-          {children}
-        </Container>
-      </Box>
-    </ThemeProvider>
+    <RestfulMockProvider value={mock}>
+      <ThemeProvider theme={theme}>
+        <Box bgcolor={theme.palette.grey[300]}>
+          <Container maxWidth={width} style={{ height }}>
+            {children}
+          </Container>
+        </Box>
+      </ThemeProvider>
+    </RestfulMockProvider>
   </Router>
 );
 

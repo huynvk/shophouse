@@ -1,64 +1,33 @@
-import { useEffect, useState } from 'react';
-import { MarketScreen } from '.';
+import { useGet } from 'hooks/restful';
+import { HomeTabs } from 'components/Tabs';
+import PositionedFab from 'components/PositionedFab';
+import Icon from 'components/Icons';
+import { ShopList } from '.';
+import { Typography } from '@material-ui/core';
 
-const mockShopList = [
-  {
-    id: 1,
-    name: 'Tạp hoá A7',
-    address: 'Block A, chung cư Lavita Garden',
-    imgUrl:
-      'https://giaoducnamchau.edu.vn/wp-content/uploads/2021/05/well-foods-microbiome-superJumbo.jpg',
-    description:
-      'Nay mình đã ship Thủ Đức và quận 9 rồi nhé ạ. Cả nhà lên đơn mai mình ship nhé. Menu mình gồm có trà sữa (chai 330ml) và bánh tráng các loại.',
-    liked: true,
-    menu: [
-      { name: 'Trà sữa', price: 30000, currency: 'VNĐ' },
-      { name: 'Bánh tráng nướng', price: 30000, currency: 'VNĐ' },
-      { name: 'Chả giò', price: 30000, currency: 'VNĐ' },
-      { name: 'Bánh cam', price: 30000, currency: 'VNĐ' },
-      { name: 'Bún bò', price: 30000, currency: 'VNĐ' },
-      { name: 'Hủ tiếu', price: 30000, currency: 'VNĐ' },
-    ],
-  },
-  {
-    id: 2,
-    name: 'Tạp hoá B1',
-    address: 'Block B, chung cư Lavita Garden',
-    imgUrl:
-      'https://giaoducnamchau.edu.vn/wp-content/uploads/2021/05/well-foods-microbiome-superJumbo.jpg',
-    description:
-      'Nay mình đã ship Thủ Đức và quận 9 rồi nhé ạ. Cả nhà lên đơn mai mình ship nhé. Menu mình gồm có trà sữa (chai 330ml) và bánh tráng các loại.',
-    liked: false,
-    menu: [
-      { name: 'Trà sữa', price: 30000, currency: 'VNĐ' },
-      { name: 'Bánh tráng nướng', price: 30000, currency: 'VNĐ' },
-      { name: 'Chả giò', price: 30000, currency: 'VNĐ' },
-    ],
-  },
-];
-
-const useMarketShopList = () => {
-  const [itemList, setItemList] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  const loadMarketItemList = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setItemList(mockShopList);
-      setLoading(false);
-    }, 500);
-  };
-
-  useEffect(() => {
-    loadMarketItemList();
-  }, []);
-
-  return [itemList, loading, loadMarketItemList];
-};
+const { VerticalLayout, PaddedContent } = require('components/Layouts');
 
 const MarketPage = () => {
-  const [items, loadingItems] = useMarketShopList();
-  return <MarketScreen shops={items} loading={loadingItems} />;
+  const { data: shops, loading } = useGet({ path: 'shops' });
+  console.log('data', shops, loading);
+
+  return (
+    <VerticalLayout
+      header={
+        <PaddedContent>
+          <Typography variant='h2'>Chợ Lavita Garden</Typography>
+        </PaddedContent>
+      }
+      footer={<HomeTabs />}
+    >
+      <ShopList items={shops} loading={loading} />
+      {shops && shops.length > 0 && (
+        <PositionedFab color='primary' aria-label='add'>
+          <Icon icon='Plus' size='lg' />
+        </PositionedFab>
+      )}
+    </VerticalLayout>
+  );
 };
 
 export default MarketPage;
