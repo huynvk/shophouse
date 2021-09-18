@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import routes from 'config/route';
+import { withMuiTheme } from 'hoc';
 
-const RootView = styled.div`
+const RootView = withMuiTheme(styled.div`
   width: 100vw;
   height: 100vh;
-`;
+  background-color: ${({ theme }) => theme.palette.background};
+`);
 
 const AppRouter = () => (
   <Router>

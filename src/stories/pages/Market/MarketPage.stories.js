@@ -13,23 +13,8 @@ const Template = ({ mock, ...props }) => (
   </StoryContainer>
 );
 
-export const Loading = Template.bind({});
-Loading.args = {
-  mock: {
-    loading: true,
-  },
-};
-
-export const EmptyScreen = Template.bind({});
-EmptyScreen.args = {
-  mock: {
-    data: [],
-    loading: false,
-  },
-};
-
-export const WithData = Template.bind({});
-WithData.args = {
+export const Default = Template.bind({});
+Default.args = {
   mock: {
     loading: false,
     data: [
@@ -69,5 +54,20 @@ WithData.args = {
         menuCount: 6,
       },
     ],
+  },
+};
+
+export const Loading = Template.bind({});
+Loading.args = {
+  mock: {
+    loading: true,
+  },
+};
+
+export const EmptyScreen = Template.bind({});
+EmptyScreen.args = {
+  mock: {
+    data: [],
+    loading: false,
   },
 };

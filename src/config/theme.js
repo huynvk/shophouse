@@ -12,8 +12,7 @@ const theme = createTheme({
       light: '#E1B440',
       main: '#E1B440',
     },
-    white: '#fff',
-    black: '#000',
+    background: '#fff',
   },
   typography: {
     fontFamily: ['Roboto'],

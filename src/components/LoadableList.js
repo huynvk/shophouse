@@ -1,5 +1,5 @@
-import { VerticalLayout } from './Layouts';
-import Loading from './Loading';
+import { Row, VerticalLayout } from './Layouts';
+import { LoadingPlaceHolder } from './Progress';
 
 const LoadableList = ({
   loading,
@@ -10,7 +10,19 @@ const LoadableList = ({
 }) => {
   const renderItemList = (items) => {
     if (loading) {
-      return <Loading />;
+      return (
+        <>
+          <Row>
+            <LoadingPlaceHolder size='lg' />
+          </Row>
+          <Row>
+            <LoadingPlaceHolder size='md' />
+          </Row>
+          <Row>
+            <LoadingPlaceHolder size='sm' />
+          </Row>
+        </>
+      );
     }
 
     if (items === undefined || items.length === 0) {

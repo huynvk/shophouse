@@ -1,9 +1,9 @@
 import React from 'react';
 import StoryContainer from 'stories/Helpers/StoryContainer';
-import { ItemList } from 'pages/ItemListing';
+import { ItemList } from 'pages/Shop';
 
 export default {
-  title: 'Pages/ItemListing/ItemList',
+  title: 'Pages/Shop/ItemList',
   component: ItemList,
 };
 

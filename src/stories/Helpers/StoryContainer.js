@@ -11,7 +11,10 @@ const StoryContainer = ({ width, height, children, mock = {} }) => (
     <RestfulMockProvider value={mock}>
       <ThemeProvider theme={theme}>
         <Box bgcolor={theme.palette.grey[300]}>
-          <Container maxWidth={width} style={{ height }}>
+          <Container
+            maxWidth={width}
+            style={{ height, padding: 0, background: theme.palette.background }}
+          >
             {children}
           </Container>
         </Box>

@@ -1,32 +1,30 @@
 import { useGet } from 'hooks/restful';
 import { HomeTabs } from 'components/Tabs';
-import PositionedFab from 'components/PositionedFab';
 import Icon from 'components/Icons';
 import { ShopList } from '.';
-import { Typography } from '@material-ui/core';
-
-const { VerticalLayout, PaddedContent } = require('components/Layouts');
+import { SimpleTextHeader } from 'components/Headers';
+import { PaddedContent, VerticalLayout } from 'components/Layouts';
+import { Fab } from '@material-ui/core';
 
 const MarketPage = () => {
   const { data: shops, loading } = useGet({ path: 'shops' });
 
   return (
     <VerticalLayout
-      header={
-        <PaddedContent pt={1} pb={0}>
-          <Typography variant='h2' component='h1'>
-            Chợ Lavita Garden
-          </Typography>
-        </PaddedContent>
-      }
+      header={<SimpleTextHeader>Chợ Lavita Garden</SimpleTextHeader>}
       footer={<HomeTabs />}
+      fab={
+        shops &&
+        shops.length > 0 && (
+          <Fab color='primary' aria-label='add'>
+            <Icon icon='Plus' size='lg' />
+          </Fab>
+        )
+      }
     >
-      <ShopList items={shops} loading={loading} />
-      {shops && shops.length > 0 && (
-        <PositionedFab color='primary' aria-label='add'>
-          <Icon icon='Plus' size='lg' />
-        </PositionedFab>
-      )}
+      <PaddedContent style={{ position: 'relative' }}>
+        <ShopList items={shops} loading={loading} />
+      </PaddedContent>
     </VerticalLayout>
   );
 };

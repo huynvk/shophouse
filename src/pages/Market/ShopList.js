@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Button, makeStyles, Typography } from '@material-ui/core';
 import { ShopCard } from 'components/Cards';
-import { PaddedContent, ExpandedBox } from 'components/Layouts';
+import { ExpandedBox } from 'components/Layouts';
 import LoadableList from 'components/LoadableList';
 
 const useStyles = makeStyles((theme) => ({
@@ -30,7 +30,7 @@ const ShopList = (props) => (
       </ExpandedBox>
     )}
     renderList={({ items }) => (
-      <PaddedContent>
+      <>
         {items.map(
           ({ id, name, address, imgUrl, description, liked, menu }) => (
             <CardWithMargin
@@ -44,7 +44,7 @@ const ShopList = (props) => (
             />
           )
         )}
-      </PaddedContent>
+      </>
     )}
     {...props}
   />
