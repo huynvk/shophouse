@@ -9,7 +9,7 @@ const VerticalLayoutContainer = styled.div`
   height: 100%;
 `;
 
-const ContentContainer = styled.div`
+const ContentContainer = withMuiTheme(styled.div`
   display: flex;
   position: relative;
   flex: 1;
@@ -17,7 +17,11 @@ const ContentContainer = styled.div`
   justify-content: flex-start;
   align-items: stretch;
   overflow-y: auto;
-`;
+
+  // @TODO: update to have dynamic margin bottom
+  margin-bottom: ${({ hasFooter, theme }) =>
+    hasFooter ? theme.spacing(3.5) : 0};
+`);
 
 const StickyFooterContainer = styled.div`
   position: fixed;
@@ -42,7 +46,7 @@ const Fab = withMuiTheme(styled.div`
 const VerticalLayout = ({ header, footer, children, fab }) => (
   <VerticalLayoutContainer>
     {header}
-    <ContentContainer>{children}</ContentContainer>
+    <ContentContainer hasFooter={!!footer}>{children}</ContentContainer>
     {(footer || fab) && (
       <StickyFooterContainer>
         {fab && <Fab>{fab}</Fab>}

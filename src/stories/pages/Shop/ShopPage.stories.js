@@ -16,16 +16,21 @@ const Template = ({ mock, ...props }) => (
 export const Default = Template.bind({});
 Default.args = {
   mock: {
-    loading: false,
-    data: {
-      id: 1,
-      name: 'Tạp hoá A7',
-      address: 'Shophouse 16 Lavita Garden',
-      description:
-        'Nay mình đã ship Thủ Đức và quận 9 rồi nhé ạ. Cả nhà lên đơn mai mình ship nhé. Menu mình gồm có trà sữa (chai 330ml) và bánh tráng các loại.',
-      ship: 'Miễn phí giao hàng cư dân Lavita Garden',
-      liked: true,
-      items: [
+    shopDetails: {
+      loading: false,
+      data: {
+        id: 1,
+        name: 'Tạp hoá A7',
+        address: 'Shophouse 16 Lavita Garden',
+        description:
+          'Nay mình đã ship Thủ Đức và quận 9 rồi nhé ạ. Cả nhà lên đơn mai mình ship nhé. Menu mình gồm có trà sữa (chai 330ml) và bánh tráng các loại.',
+        ship: 'Miễn phí giao hàng cư dân Lavita Garden',
+        liked: true,
+      },
+    },
+    shopItems: {
+      loading: false,
+      data: [
         {
           id: 1,
           name: 'Chả giò',
@@ -64,22 +69,34 @@ Default.args = {
 
 export const Loading = Template.bind({});
 Loading.args = {
-  loading: true,
+  mock: {
+    shopDetails: {
+      loading: true,
+    },
+    shopItems: {
+      loading: true,
+    },
+  },
 };
 
 export const EmptyScreen = Template.bind({});
 EmptyScreen.args = {
   mock: {
-    loading: false,
-    data: {
-      id: 1,
-      name: 'Tạp hoá A7',
-      address: 'Shophouse 16 Lavita Garden',
-      description:
-        'Nay mình đã ship Thủ Đức và quận 9 rồi nhé ạ. Cả nhà lên đơn mai mình ship nhé. Menu mình gồm có trà sữa (chai 330ml) và bánh tráng các loại.',
-      ship: 'Miễn phí giao hàng cư dân Lavita Garden',
-      liked: false,
-      items: [],
+    shopDetails: {
+      loading: false,
+      data: {
+        id: 1,
+        name: 'Tạp hoá A7',
+        address: 'Shophouse 16 Lavita Garden',
+        description:
+          'Nay mình đã ship Thủ Đức và quận 9 rồi nhé ạ. Cả nhà lên đơn mai mình ship nhé. Menu mình gồm có trà sữa (chai 330ml) và bánh tráng các loại.',
+        ship: 'Miễn phí giao hàng cư dân Lavita Garden',
+        liked: false,
+      },
+    },
+    shopItems: {
+      loading: false,
+      data: [],
     },
   },
 };

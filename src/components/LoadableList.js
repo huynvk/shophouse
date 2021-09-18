@@ -25,7 +25,7 @@ const LoadableList = ({
       );
     }
 
-    if (items === undefined || items.length === 0) {
+    if (items === undefined || items === null || items.length === 0) {
       return renderEmptyState(props);
     }
 

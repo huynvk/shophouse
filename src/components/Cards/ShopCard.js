@@ -10,7 +10,9 @@ import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import { Box, Button, Grid } from '@material-ui/core';
+import { Box, Button, CardActionArea, Grid } from '@material-ui/core';
+import { useShopItems } from 'hooks/api';
+import { Loadable } from 'components/Progress';
 
 const useStyles = makeStyles((theme) => ({
   media: {
@@ -23,17 +25,19 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ShopCard = ({
+  id,
   name,
   address,
   imgUrl,
   description,
   liked = true,
-  menu = [],
   menuCount = 0,
+  onCardAction,
   ...props
 }) => {
   const classes = useStyles();
   const [expanded, setExpanded] = useState(false);
+  const { data: menu, loading } = useShopItems(id);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -41,39 +45,46 @@ const ShopCard = ({
 
   return (
     <Card className={classes.root} {...props}>
-      <CardHeader title={name} subheader={address} />
-      <CardMedia className={classes.media} image={imgUrl} title={name} />
-      <CardContent>
-        <Typography color='textSecondary' component='p'>
-          {description}
-        </Typography>
-      </CardContent>
+      <CardActionArea onClick={onCardAction}>
+        <CardHeader title={name} subheader={address} />
+        <CardMedia className={classes.media} image={imgUrl} title={name} />
+        <CardContent>
+          <Typography color='textSecondary' component='p'>
+            {description}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
       <Collapse in={!expanded} timeout='auto' unmountOnExit>
         <Box height='1px' bgcolor='grey.300' />
       </Collapse>
 
       <Collapse in={expanded} timeout='auto' unmountOnExit>
         <CardContent>
-          {menu.map(({ name, price, currency }, index) => (
-            <Grid
-              key={index}
-              container
-              justifyContent='space-between'
-              spacing={1}
-            >
-              <Grid item>
-                <Typography>{name}</Typography>
-              </Grid>
-              <Grid item>
-                <Typography>{`${price} ${currency}`}</Typography>
-              </Grid>
-            </Grid>
-          ))}
+          <Loadable size='lg' loading={loading}>
+            {menu &&
+              menu.map(({ name, price, currency }, index) => (
+                <Grid
+                  key={index}
+                  container
+                  justifyContent='space-between'
+                  spacing={1}
+                >
+                  <Grid item>
+                    <Typography>{name}</Typography>
+                  </Grid>
+                  <Grid item>
+                    <Typography>{`${price} ${currency}`}</Typography>
+                  </Grid>
+                </Grid>
+              ))}
+          </Loadable>
         </CardContent>
       </Collapse>
       <CardActions disableSpacing>
         <Button color='primary' onClick={handleExpandClick}>
-          {expanded ? 'Thu gọn' : `Xem menu (${menu.length || menuCount})`}
+          {expanded
+            ? 'Thu gọn'
+            : `Xem menu (${menu ? menu.length : menuCount})`}
         </Button>
         <IconButton className={classes.like}>
           <FavoriteIcon color={liked ? 'primary' : 'action'} />

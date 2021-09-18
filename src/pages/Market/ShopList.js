@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import { Button, makeStyles, Typography } from '@material-ui/core';
 import { ShopCard } from 'components/Cards';
 import { ExpandedBox } from 'components/Layouts';
@@ -15,40 +16,45 @@ const CardWithMargin = (props) => {
   return <ShopCard classes={{ root: classes.root }} {...props} />;
 };
 
-const ShopList = (props) => (
-  <LoadableList
-    renderEmptyState={() => (
-      <ExpandedBox>
-        <Typography align='center'>Chưa có cửa hàng nào đăng ký.</Typography>
-        <Typography align='center'>
-          Đăng bán ngay để trở thành cửa hàng đầu tiên.
-        </Typography>
+const ShopList = (props) => {
+  let history = useHistory();
+  return (
+    <LoadableList
+      renderEmptyState={() => (
+        <ExpandedBox>
+          <Typography align='center'>Chưa có cửa hàng nào đăng ký.</Typography>
+          <Typography align='center'>
+            Đăng bán ngay để trở thành cửa hàng đầu tiên.
+          </Typography>
 
-        <Button variant='contained' color='primary'>
-          Đăng bán
-        </Button>
-      </ExpandedBox>
-    )}
-    renderList={({ items }) => (
-      <>
-        {items.map(
-          ({ id, name, address, imgUrl, description, liked, menu }) => (
-            <CardWithMargin
-              key={id}
-              name={name}
-              imgUrl={imgUrl}
-              address={address}
-              description={description}
-              liked={liked}
-              menu={menu}
-            />
-          )
-        )}
-      </>
-    )}
-    {...props}
-  />
-);
+          <Button variant='contained' color='primary'>
+            Đăng bán
+          </Button>
+        </ExpandedBox>
+      )}
+      renderList={({ items }) => (
+        <>
+          {items.map(
+            ({ id, name, address, imgUrl, description, liked, menu }) => (
+              <CardWithMargin
+                key={id}
+                id={id}
+                name={name}
+                imgUrl={imgUrl}
+                address={address}
+                description={description}
+                liked={liked}
+                menu={menu}
+                onCardAction={() => history.push(`/shop/${id}`)}
+              />
+            )
+          )}
+        </>
+      )}
+      {...props}
+    />
+  );
+};
 
 ShopList.propTypes = {
   loading: PropTypes.bool,

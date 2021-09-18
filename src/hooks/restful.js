@@ -4,19 +4,21 @@ import { useGet, useMutate, RestfulProvider } from 'restful-react';
 const MockContext = createContext(undefined);
 const RestfulMockProvider = MockContext.Provider;
 
-const useGetWithCustomMock = (params) => {
-  const mock = useContext(MockContext);
+const useGetWithCustomMock = (mockKey, params) => {
+  const mocks = useContext(MockContext);
+  const mock = mocks ? mocks[mockKey] : undefined;
   return useGet({ mock, ...params });
 };
 
-const useMutateWithCustomMock = (params) => {
-  const mock = useContext(MockContext);
+const useMutateWithCustomMock = (mockKey, params) => {
+  const mocks = useContext(MockContext);
+  const mock = mocks ? mocks[mockKey] : undefined;
   return useMutate({ mock, ...params });
 };
 
 export {
   RestfulMockProvider,
   RestfulProvider,
-  useGetWithCustomMock as useGet,
-  useMutateWithCustomMock as useMutate,
+  useGetWithCustomMock,
+  useMutateWithCustomMock,
 };

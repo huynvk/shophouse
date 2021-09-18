@@ -1,13 +1,13 @@
-import { useGet } from 'hooks/restful';
 import { HomeTabs } from 'components/Tabs';
 import Icon from 'components/Icons';
 import { ShopList } from '.';
 import { SimpleTextHeader } from 'components/Headers';
 import { PaddedContent, VerticalLayout } from 'components/Layouts';
 import { Fab } from '@material-ui/core';
+import { useShopList } from 'hooks/api';
 
 const MarketPage = () => {
-  const { data: shops, loading } = useGet({ path: 'shops' });
+  const { data: shops, loading } = useShopList();
 
   return (
     <VerticalLayout
@@ -22,7 +22,7 @@ const MarketPage = () => {
         )
       }
     >
-      <PaddedContent style={{ position: 'relative' }}>
+      <PaddedContent fullHeight>
         <ShopList items={shops} loading={loading} />
       </PaddedContent>
     </VerticalLayout>

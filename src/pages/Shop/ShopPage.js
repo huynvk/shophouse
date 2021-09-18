@@ -1,25 +1,18 @@
+import { Grid, IconButton, Typography } from '@material-ui/core';
+import FavoriteIcon from '@material-ui/icons/Favorite';
 import { HomeTabs } from 'components/Tabs';
-import { ItemList } from '.';
-import PositionedFab from 'components/PositionedFab';
 import Icon from 'components/Icons';
 import { ToolbarHeader } from 'components/Headers';
-import { Fab, Grid, IconButton, Typography } from '@material-ui/core';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import { useGet } from 'hooks/restful';
 import {
   HorizontalSpacer,
   PaddedContent,
   Row,
   VerticalLayout,
 } from 'components/Layouts';
-import { LoadingPlaceHolder } from 'components/Progress';
-
-const Loadable = ({ size, loading, children }) => {
-  if (loading) {
-    return <LoadingPlaceHolder size={size} />;
-  }
-  return children;
-};
+import { Loadable } from 'components/Progress';
+import { ItemList } from '.';
+import { useParams } from 'react-router-dom';
+import { useShopDetails, useShopItems } from 'hooks/api';
 
 const ShopInfo = ({ name, address, ship, liked, loading }) => (
   <PaddedContent pr={1} pb={0}>
@@ -56,10 +49,11 @@ const ShopInfo = ({ name, address, ship, liked, loading }) => (
 );
 
 const ShopPage = () => {
-  const id = '1';
-  const { data, loading } = useGet({ path: `shops/${id}` });
+  const { id: shopId } = useParams();
+  const { data, loading: loadingShopInfo } = useShopDetails(shopId);
+  const { data: items, loading: loadingItems } = useShopItems(shopId);
 
-  const { name, address, ship, liked, items } = data || {};
+  const { name, address, ship, liked } = data || {};
 
   return (
     <VerticalLayout
@@ -71,11 +65,11 @@ const ShopPage = () => {
         address={address}
         ship={ship}
         liked={liked}
-        loading={loading}
+        loading={loadingShopInfo}
       />
 
-      <PaddedContent>
-        <ItemList items={items} loading={loading} />
+      <PaddedContent fullHeight>
+        <ItemList items={items} loading={loadingItems} />
       </PaddedContent>
     </VerticalLayout>
   );
