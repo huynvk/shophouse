@@ -1,4 +1,4 @@
-import { createTheme } from '@material-ui/core/styles';
+import { createTheme } from '@mui/material';
 
 const theme = createTheme({
   palette: {
@@ -6,11 +6,13 @@ const theme = createTheme({
       dark: '#d29001',
       light: '#e8c675',
       main: '#ddab38',
+      contrastText: '#fff',
     },
     secondary: {
       dark: '#E1B440',
       light: '#E1B440',
       main: '#E1B440',
+      contrastText: '#fff',
     },
     background: '#fff',
   },

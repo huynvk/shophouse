@@ -16,10 +16,10 @@ import {
   TextField,
   Toolbar,
   Typography,
-} from '@material-ui/core';
+} from '@mui/material';
 import Icon from 'components/Icons';
 import { BackButton } from 'components/Buttons';
-import { withMuiTheme } from 'hoc';
+import { withTheme } from '@mui/styles';
 
 const BookingScreen = ({
   theme,
@@ -39,12 +39,8 @@ const BookingScreen = ({
     <VerticalLayout
       header={
         <Box bgcolor='primary.main'>
-          <Toolbar color='white'>
-            <IconButton
-              edge={false}
-              aria-label='back'
-              style={{ marginLeft: theme.spacing(-2) }}
-            >
+          <Toolbar>
+            <IconButton edge='start' aria-label='back' size='large'>
               <BackButton light />
             </IconButton>
             <Typography
@@ -161,4 +157,4 @@ BookingScreen.propTypes = {
   loading: PropTypes.bool,
 };
 
-export default withMuiTheme(BookingScreen);
+export default withTheme(BookingScreen);

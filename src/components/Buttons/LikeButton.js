@@ -1,4 +1,4 @@
-import { useTheme } from '@material-ui/core';
+import { useTheme } from '@mui/material';
 import { Heart } from 'components/Icons';
 
 const LikeButton = ({ active, size = 1 }) => {

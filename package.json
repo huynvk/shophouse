@@ -3,9 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.12.3",
-    "@material-ui/icons": "^4.11.2",
-    "@material-ui/system": "^4.12.1",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@mui/icons-material": "^5.0.0",
+    "@mui/material": "^5.0.0",
+    "@mui/styles": "^5.0.0",
+    "@mui/system": "^5.0.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -18,7 +21,8 @@
     "restful-react": "^15.9.0",
     "sass": "^1.40.0",
     "styled-components": "^5.3.1",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -46,9 +50,12 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%",
+      "> 0.5%",
+      "last 2 versions",
+      "Firefox ESR",
       "not dead",
-      "not op_mini all"
+      "not IE 11",
+      "maintained node versions"
     ],
     "development": [
       "last 1 chrome version",
@@ -63,5 +70,8 @@
     "@storybook/node-logger": "^6.3.8",
     "@storybook/preset-create-react-app": "^3.2.0",
     "@storybook/react": "^6.3.8"
+  },
+  "resolutions": {
+    "@mui/styled-engine": "npm:@mui/styled-engine-sc@latest"
   }
 }

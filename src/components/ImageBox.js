@@ -1,8 +1,8 @@
-import styled from 'styled-components';
-import { withMuiTheme } from 'hoc';
-import { Typography } from '@material-ui/core';
+import { styled } from '@mui/system';
+import { withTheme } from '@mui/styles';
+import { Typography } from '@mui/material';
 
-const ImageBoxContainer = styled.div`
+const ImageBoxContainer = styled('div')`
   position: relative;
   overflow: hidden;
   background-image: ${({ imgUrl }) => `url(${imgUrl})`};
@@ -81,4 +81,4 @@ const ImageBox = ({
   );
 };
 
-export default withMuiTheme(ImageBox);
+export default withTheme(ImageBox);

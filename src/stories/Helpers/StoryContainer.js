@@ -1,16 +1,16 @@
 import React from 'react';
-import { Container, Box } from '@material-ui/core';
-import { ThemeProvider } from '@material-ui/core/styles';
-import { ThemeProvider as StyledComponentThemeProvider } from 'styled-components';
 import theme from 'config/theme';
-import '../../index.scss';
+
+import { Container, Box } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { RestfulMockProvider } from 'hooks/restful';
+import '../../index.scss';
 
-const StoryContainer = ({ width, height, children, mock = {} }) => (
-  <Router>
-    <RestfulMockProvider value={mock}>
-      <StyledComponentThemeProvider theme={theme}>
+const StoryContainer = ({ width, height, children, mock = {} }) => {
+  return (
+    <Router>
+      <RestfulMockProvider value={mock}>
         <ThemeProvider theme={theme}>
           <Box bgcolor={theme.palette.grey[300]}>
             <Container
@@ -25,9 +25,9 @@ const StoryContainer = ({ width, height, children, mock = {} }) => (
             </Container>
           </Box>
         </ThemeProvider>
-      </StyledComponentThemeProvider>
-    </RestfulMockProvider>
-  </Router>
-);
+      </RestfulMockProvider>
+    </Router>
+  );
+};
 
 export default StoryContainer;

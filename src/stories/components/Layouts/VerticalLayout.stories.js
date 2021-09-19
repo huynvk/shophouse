@@ -12,7 +12,10 @@ const Template = ({ width, height, ...props }) => (
     <VerticalLayout
       header={<div style={{ background: 'green' }}>Header</div>}
       footer={<div style={{ background: 'green' }}>Footer</div>}
-      style={{ background: 'white', border: '1px solid red' }}
+      style={{
+        background: 'white',
+        border: '1px solid red',
+      }}
       {...props}
     >
       <p>Content</p>

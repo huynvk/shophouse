@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
-import { Button, makeStyles, Typography } from '@material-ui/core';
+import { makeStyles } from '@mui/styles';
+import { Button, Typography } from '@mui/material';
 import { ShopCard } from 'components/Cards';
 import { ExpandedBox } from 'components/Layouts';
 import LoadableList from 'components/LoadableList';

@@ -1,4 +1,6 @@
-const { LinearProgress, withStyles, Box } = require('@material-ui/core');
+import { LinearProgress } from '@mui/material';
+import { withStyles } from '@mui/styles';
+import { Box } from '@mui/system';
 
 const LoadingAnimation = withStyles((theme) => ({
   root: {
@@ -6,7 +8,7 @@ const LoadingAnimation = withStyles((theme) => ({
   },
   colorPrimary: {
     backgroundColor:
-      theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
+      theme.palette.grey[theme.palette.mode === 'light' ? 200 : 700],
   },
   bar: {
     backgroundColor: theme.palette.grey[100],

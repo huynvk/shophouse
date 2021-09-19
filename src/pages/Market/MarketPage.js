@@ -3,7 +3,7 @@ import Icon from 'components/Icons';
 import { ShopList } from '.';
 import { SimpleTextHeader } from 'components/Headers';
 import { PaddedContent, VerticalLayout } from 'components/Layouts';
-import { Fab } from '@material-ui/core';
+import { Fab } from '@mui/material';
 import { useShopList } from 'hooks/api';
 
 const MarketPage = () => {

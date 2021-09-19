@@ -8,7 +8,7 @@ import {
   Footer,
 } from 'components/Layouts';
 import HeaderImage from './HeaderImage';
-import { Box, Button, Chip, Typography } from '@material-ui/core';
+import { Box, Button, Chip, Typography } from '@mui/material';
 import Icon from 'components/Icons';
 import { useItemDetails, useShopDetails } from 'hooks/api';
 import { useParams } from 'react-router-dom';

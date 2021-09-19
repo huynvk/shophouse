@@ -1,4 +1,4 @@
-import { Typography } from '@material-ui/core';
+import { Typography } from '@mui/material';
 import { PaddedContent } from '../Layouts';
 
 const SimpleTextHeader = ({ children, ...props }) => (

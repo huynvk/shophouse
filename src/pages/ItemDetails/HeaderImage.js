@@ -1,8 +1,8 @@
-import { Toolbar, IconButton } from '@material-ui/core';
+import { Toolbar, IconButton } from '@mui/material';
 
 import { LikeButton, BackButton } from 'components/Buttons';
 import ImageBox from 'components/ImageBox';
-import { withMuiTheme } from 'hoc';
+import { withTheme } from '@mui/styles';
 
 const HeaderImage = ({ theme, imgUrl, name }) => {
   return (
@@ -11,11 +11,7 @@ const HeaderImage = ({ theme, imgUrl, name }) => {
       name={name}
       header={
         <Toolbar>
-          <IconButton
-            edge={false}
-            aria-label='back'
-            style={{ marginLeft: theme.spacing(-1) }}
-          >
+          <IconButton edge='start' aria-label='back' size='large'>
             <BackButton light />
           </IconButton>
         </Toolbar>
@@ -26,4 +22,4 @@ const HeaderImage = ({ theme, imgUrl, name }) => {
   );
 };
 
-export default withMuiTheme(HeaderImage);
+export default withTheme(HeaderImage);

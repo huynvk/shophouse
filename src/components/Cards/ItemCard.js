@@ -7,31 +7,31 @@ import {
   Chip,
   IconButton,
   Typography,
-} from '@material-ui/core';
+} from '@mui/material';
 import Icon from 'components/Icons';
-import { withMuiTheme } from 'hoc';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import { withTheme } from '@mui/styles';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
-import styled from 'styled-components';
+import { styled } from '@mui/system';
 import Row from 'components/Layouts/Row';
 import HorizontalSpacer from 'components/Layouts/HorizontalSpacer';
 
-const Container = styled.div`
+const Container = styled('div')`
   display: flex;
 `;
 
-const ContentContainer = styled.div`
+const ContentContainer = styled('div')`
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 100%;
 `;
 
-const Head = styled.div`
+const Head = styled('div')`
   flex: 1;
 `;
 
-const Price = styled.div`
+const Price = styled('div')`
   display: flex;
   justify-content: space-between;
   align-self: 'stretch';
@@ -74,6 +74,7 @@ const ItemCard = ({
                     marginTop: theme.spacing(-1),
                     marginRight: theme.spacing(-1),
                   }}
+                  size='large'
                 >
                   <FavoriteIcon color={hasLiked ? 'primary' : 'action'} />
                 </IconButton>
@@ -112,4 +113,4 @@ ItemCard.propTypes = {
   onCardAction: PropTypes.func,
 };
 
-export default withMuiTheme(ItemCard);
+export default withTheme(ItemCard);
