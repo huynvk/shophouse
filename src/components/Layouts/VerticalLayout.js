@@ -1,4 +1,3 @@
-import { withMuiTheme } from 'hoc';
 import styled from 'styled-components';
 
 const VerticalLayoutContainer = styled.div`
@@ -9,7 +8,7 @@ const VerticalLayoutContainer = styled.div`
   height: 100%;
 `;
 
-const ContentContainer = withMuiTheme(styled.div`
+const ContentContainer = styled.div`
   display: flex;
   position: relative;
   flex: 1;
@@ -21,7 +20,7 @@ const ContentContainer = withMuiTheme(styled.div`
   // @TODO: update to have dynamic margin bottom
   margin-bottom: ${({ hasFooter, theme }) =>
     hasFooter ? theme.spacing(3.5) : 0};
-`);
+`;
 
 const StickyFooterContainer = styled.div`
   position: fixed;
@@ -33,15 +32,15 @@ const StickyFooterContainer = styled.div`
   align-items: flex-end;
 `;
 
-const Footer = withMuiTheme(styled.div`
+const Footer = styled.div`
   align-self: stretch;
   background: ${({ theme }) => theme.palette.common.white};
-`);
+`;
 
-const Fab = withMuiTheme(styled.div`
+const Fab = styled.div`
   margin-right: ${({ theme }) => theme.spacing(2)};
   margin-bottom: ${({ theme }) => theme.spacing(1)};
-`);
+`;
 
 const VerticalLayout = ({ header, footer, children, fab }) => (
   <VerticalLayoutContainer>

@@ -1,6 +1,6 @@
 import { Grid, IconButton, Typography } from '@material-ui/core';
+import { useParams } from 'react-router-dom';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import { HomeTabs } from 'components/Tabs';
 import Icon from 'components/Icons';
 import { ToolbarHeader } from 'components/Headers';
 import {
@@ -10,9 +10,8 @@ import {
   VerticalLayout,
 } from 'components/Layouts';
 import { Loadable } from 'components/Progress';
-import { ItemList } from '.';
-import { useParams } from 'react-router-dom';
 import { useShopDetails, useShopItems } from 'hooks/api';
+import { ItemList } from '.';
 
 const ShopInfo = ({ name, address, ship, liked, loading }) => (
   <PaddedContent pr={1} pb={0}>
@@ -56,10 +55,7 @@ const ShopPage = () => {
   const { name, address, ship, liked } = data || {};
 
   return (
-    <VerticalLayout
-      header={<ToolbarHeader title='Cửa hàng' />}
-      footer={<HomeTabs />}
-    >
+    <VerticalLayout header={<ToolbarHeader title='Cửa hàng' />}>
       <ShopInfo
         name={name}
         address={address}

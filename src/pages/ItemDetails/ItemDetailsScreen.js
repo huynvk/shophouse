@@ -8,7 +8,7 @@ import {
   Footer,
 } from 'components/Layouts';
 import HeaderImage from './HeaderImage';
-import { Box, Button, Typography } from '@material-ui/core';
+import { Box, Button, Chip, Typography } from '@material-ui/core';
 import Icon from 'components/Icons';
 import { useItemDetails, useShopDetails } from 'hooks/api';
 import { useParams } from 'react-router-dom';
@@ -64,9 +64,8 @@ const ItemDetailsScreen = () => {
       <PaddedContent>
         <Row>
           <Loadable size='lg' loading={loadingItem}>
-            <Typography color='primary' variant='h6'>
-              {status}
-            </Typography>
+            <Chip label={status} />
+
             <HorizontalSpacer size={0.5} />
             <Icon icon='Info' />
           </Loadable>
@@ -76,7 +75,7 @@ const ItemDetailsScreen = () => {
             <Typography color='textSecondary'>{statusDetails}</Typography>
           </Row>
         </Loadable>
-        <Divider />
+        {/* <Divider /> */}
         <InfoRow
           icon='Price'
           loading={loadingItem}

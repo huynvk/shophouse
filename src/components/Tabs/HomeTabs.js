@@ -3,13 +3,12 @@ import styled from 'styled-components';
 import Icon from 'components/Icons';
 import { Link } from 'react-router-dom';
 import { useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min';
-import { withMuiTheme } from 'hoc';
 const { Paper, Box, Typography } = require('@material-ui/core');
 
 // This component doesn't use tab from material ui, since it seems too complex
 // Applied a simple solution first
 
-const StyledLink = withMuiTheme(styled(Link)`
+const StyledLink = styled(Link)`
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -23,7 +22,7 @@ const StyledLink = withMuiTheme(styled(Link)`
   &:hover {
     background: ${({ theme }) => theme.palette.grey[300]};
   }
-`);
+`;
 
 const LinkTab = ({ label, icon, selected, to, ...props }) => {
   let match = useRouteMatch({

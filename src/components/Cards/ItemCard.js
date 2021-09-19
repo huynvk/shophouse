@@ -3,12 +3,39 @@ import {
   Card,
   CardActionArea,
   CardContent,
+  CardMedia,
+  Chip,
+  IconButton,
   Typography,
 } from '@material-ui/core';
 import Icon from 'components/Icons';
-import { HorizontalSpacer, Row } from '../Layouts';
 import { withMuiTheme } from 'hoc';
-import ImageBox from '../ImageBox';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+
+import styled from 'styled-components';
+import Row from 'components/Layouts/Row';
+import HorizontalSpacer from 'components/Layouts/HorizontalSpacer';
+
+const Container = styled.div`
+  display: flex;
+`;
+
+const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+`;
+
+const Head = styled.div`
+  flex: 1;
+`;
+
+const Price = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-self: 'stretch';
+`;
 
 const ItemCard = ({
   theme,
@@ -24,32 +51,52 @@ const ItemCard = ({
 }) => (
   <Card {...props}>
     <CardActionArea onClick={onCardAction}>
-      <ImageBox
-        imgUrl={imgUrl}
-        name={name}
-        height={theme.spacing(10)}
-        headerVariant='h2'
-        paddingSize={1}
-      />
-      <CardContent>
-        <Row>
-          <Typography color='primary' variant='h6'>
-            {status}
-          </Typography>
-        </Row>
-        <Row>
-          <Icon icon='Price' size='lg' />
-          <HorizontalSpacer />
-          <Typography>{`${price} ${currency}`}</Typography>
-        </Row>
-        {ship && (
-          <Row>
-            <Icon icon='Ship' size='lg' />
-            <HorizontalSpacer />
-            <Typography>{ship}</Typography>
-          </Row>
-        )}
-      </CardContent>
+      <Container>
+        <CardMedia
+          image={imgUrl}
+          title={name}
+          style={{
+            width: '0',
+            paddingLeft: '40%',
+            paddingTop: '40%', // Minimum height is 40% of width
+            justifySelf: 'stretch',
+          }}
+        />
+        <CardContent style={{ flex: 1 }}>
+          <ContentContainer>
+            <Head>
+              <Price>
+                <Row>
+                  <Typography variant='h6'>{name}</Typography>
+                </Row>
+                <IconButton
+                  style={{
+                    marginTop: theme.spacing(-1),
+                    marginRight: theme.spacing(-1),
+                  }}
+                >
+                  <FavoriteIcon color={hasLiked ? 'primary' : 'action'} />
+                </IconButton>
+              </Price>
+              <Row>
+                <Chip label={status} />
+              </Row>
+            </Head>
+            {ship && (
+              <Row>
+                <Icon icon='Ship' size='lg' />
+                <HorizontalSpacer />
+                <Typography>{ship}</Typography>
+              </Row>
+            )}
+            <Row mb={0}>
+              <Icon icon='Price' size='lg' />
+              <HorizontalSpacer />
+              <Typography>{`${price} ${currency}`}</Typography>
+            </Row>
+          </ContentContainer>
+        </CardContent>
+      </Container>
     </CardActionArea>
   </Card>
 );
