@@ -53,33 +53,33 @@ const ShopCard = ({
             {description}
           </Typography>
         </CardContent>
-      </CardActionArea>
-      <Collapse in={!expanded} timeout='auto' unmountOnExit>
-        <Box height='1px' bgcolor='grey.300' />
-      </Collapse>
+        <Collapse in={!expanded} timeout='auto' unmountOnExit>
+          <Box height='1px' bgcolor='grey.300' />
+        </Collapse>
 
-      <Collapse in={expanded} timeout='auto' unmountOnExit>
-        <CardContent>
-          <Loadable size='lg' loading={loading}>
-            {menu &&
-              menu.map(({ name, price, currency }, index) => (
-                <Grid
-                  key={index}
-                  container
-                  justifyContent='space-between'
-                  spacing={1}
-                >
-                  <Grid item>
-                    <Typography>{name}</Typography>
+        <Collapse in={expanded} timeout='auto' unmountOnExit>
+          <CardContent>
+            <Loadable size='lg' loading={loading}>
+              {menu &&
+                menu.map(({ name, price, currency }, index) => (
+                  <Grid
+                    key={index}
+                    container
+                    justifyContent='space-between'
+                    spacing={1}
+                  >
+                    <Grid item>
+                      <Typography>{name}</Typography>
+                    </Grid>
+                    <Grid item>
+                      <Typography>{`${price} ${currency}`}</Typography>
+                    </Grid>
                   </Grid>
-                  <Grid item>
-                    <Typography>{`${price} ${currency}`}</Typography>
-                  </Grid>
-                </Grid>
-              ))}
-          </Loadable>
-        </CardContent>
-      </Collapse>
+                ))}
+            </Loadable>
+          </CardContent>
+        </Collapse>
+      </CardActionArea>
       <CardActions disableSpacing>
         <Button color='primary' onClick={handleExpandClick}>
           {expanded
