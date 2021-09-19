@@ -16,10 +16,11 @@ const ContentContainer = styled('div')`
   justify-content: flex-start;
   align-items: stretch;
   overflow-y: auto;
+`;
 
+const FooterReplacement = styled('div')`
   // @TODO: update to have dynamic margin bottom
-  margin-bottom: ${({ hasFooter, theme }) =>
-    hasFooter ? theme.spacing(3.5) : 0};
+  height: ${({ theme }) => theme.spacing(3.5)};
 `;
 
 const StickyFooterContainer = styled('div')`
@@ -45,7 +46,8 @@ const Fab = styled('div')`
 const VerticalLayout = ({ header, footer, children, fab }) => (
   <VerticalLayoutContainer>
     {header}
-    <ContentContainer hasFooter={!!footer}>{children}</ContentContainer>
+    <ContentContainer>{children}</ContentContainer>
+    {footer && <FooterReplacement />}
     {(footer || fab) && (
       <StickyFooterContainer>
         {fab && <Fab>{fab}</Fab>}
