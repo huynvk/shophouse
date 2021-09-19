@@ -19,10 +19,11 @@ const ItemCard = ({
   status,
   hasLiked,
   ship,
+  onCardAction,
   ...props
 }) => (
   <Card {...props}>
-    <CardActionArea>
+    <CardActionArea onClick={onCardAction}>
       <ImageBox
         imgUrl={imgUrl}
         name={name}
@@ -61,6 +62,7 @@ ItemCard.propTypes = {
   status: PropTypes.string,
   hasLiked: PropTypes.bool,
   ship: PropTypes.string,
+  onCardAction: PropTypes.func,
 };
 
 export default withMuiTheme(ItemCard);

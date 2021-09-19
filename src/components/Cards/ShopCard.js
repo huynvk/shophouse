@@ -100,14 +100,8 @@ ShopCard.propTypes = {
   imgUrl: PropTypes.string,
   description: PropTypes.string,
   liked: PropTypes.bool,
-  menu: PropTypes.arrayOf(
-    PropTypes.shape({
-      price: PropTypes.number,
-      name: PropTypes.string,
-      currency: PropTypes.string,
-    })
-  ),
   menuCount: PropTypes.number,
+  onCardAction: PropTypes.func,
 };
 
 export default ShopCard;
