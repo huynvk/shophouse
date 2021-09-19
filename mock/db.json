@@ -30,6 +30,8 @@
       "currency": "VNĐ",
       "status": "SẮP MỞ BÁN",
       "hasLiked": true,
+      "likeCount": 12,
+      "description": "CHẢ GIÒ CUỐN bánh tráng xốp giòn. Nguyên liệu sạch lựa chọn kĩ lưỡng. Em tính qua tuần mới cuốn nhưng có vài chị đặt nên e nhận thêm 7 phần nữa ạ.",
       "shopId": 1
     },
     {
@@ -40,7 +42,9 @@
       "currency": "VNĐ",
       "status": "SẮP MỞ BÁN",
       "hasLiked": true,
+      "likeCount": 12,
       "ship": "Thoả thuận",
+      "description": "CHẢ GIÒ CUỐN bánh tráng xốp giòn. Nguyên liệu sạch lựa chọn kĩ lưỡng. Em tính qua tuần mới cuốn nhưng có vài chị đặt nên e nhận thêm 7 phần nữa ạ.",
       "shopId": 1
     },
     {
@@ -51,6 +55,8 @@
       "currency": "VNĐ",
       "status": "SẮP MỞ BÁN",
       "hasLiked": false,
+      "likeCount": 12,
+      "description": "CHẢ GIÒ CUỐN bánh tráng xốp giòn. Nguyên liệu sạch lựa chọn kĩ lưỡng. Em tính qua tuần mới cuốn nhưng có vài chị đặt nên e nhận thêm 7 phần nữa ạ.",
       "shopId": 1
     },
     {
@@ -61,6 +67,8 @@
       "currency": "VNĐ",
       "status": "SẮP MỞ BÁN",
       "hasLiked": false,
+      "likeCount": 12,
+      "description": "CHẢ GIÒ CUỐN bánh tráng xốp giòn. Nguyên liệu sạch lựa chọn kĩ lưỡng. Em tính qua tuần mới cuốn nhưng có vài chị đặt nên e nhận thêm 7 phần nữa ạ.",
       "shopId": 1
     },
     {
@@ -71,6 +79,8 @@
       "currency": "VNĐ",
       "status": "SẮP MỞ BÁN",
       "hasLiked": true,
+      "likeCount": 12,
+      "description": "CHẢ GIÒ CUỐN bánh tráng xốp giòn. Nguyên liệu sạch lựa chọn kĩ lưỡng. Em tính qua tuần mới cuốn nhưng có vài chị đặt nên e nhận thêm 7 phần nữa ạ.",
       "shopId": 2
     },
     {
@@ -81,7 +91,9 @@
       "currency": "VNĐ",
       "status": "SẮP MỞ BÁN",
       "hasLiked": true,
+      "likeCount": 12,
       "ship": "Thoả thuận",
+      "description": "CHẢ GIÒ CUỐN bánh tráng xốp giòn. Nguyên liệu sạch lựa chọn kĩ lưỡng. Em tính qua tuần mới cuốn nhưng có vài chị đặt nên e nhận thêm 7 phần nữa ạ.",
       "shopId": 2
     },
     {
@@ -92,6 +104,8 @@
       "currency": "VNĐ",
       "status": "SẮP MỞ BÁN",
       "hasLiked": false,
+      "likeCount": 12,
+      "description": "CHẢ GIÒ CUỐN bánh tráng xốp giòn. Nguyên liệu sạch lựa chọn kĩ lưỡng. Em tính qua tuần mới cuốn nhưng có vài chị đặt nên e nhận thêm 7 phần nữa ạ.",
       "shopId": 2
     },
     {
@@ -102,6 +116,8 @@
       "currency": "VNĐ",
       "status": "SẮP MỞ BÁN",
       "hasLiked": false,
+      "likeCount": 12,
+      "description": "CHẢ GIÒ CUỐN bánh tráng xốp giòn. Nguyên liệu sạch lựa chọn kĩ lưỡng. Em tính qua tuần mới cuốn nhưng có vài chị đặt nên e nhận thêm 7 phần nữa ạ.",
       "shopId": 2
     }
   ],

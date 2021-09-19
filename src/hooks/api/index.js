@@ -8,3 +8,6 @@ export const useShopDetails = (shopId, params) =>
 
 export const useShopItems = (shopId, params) =>
   useGetWithCustomMock('shopItems', { path: `/items/?shop=${shopId}` });
+
+export const useItemDetails = (itemId, params) =>
+  useGetWithCustomMock('itemDetails', { path: `/items/${itemId}` });

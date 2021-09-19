@@ -1,20 +1,17 @@
 import styled from 'styled-components';
 import { withMuiTheme } from 'hoc';
-import { VerticalLayout } from './Layouts';
 import { Typography } from '@material-ui/core';
 
 const ImageBoxContainer = styled.div`
   position: relative;
   overflow: hidden;
-
-  // @TODO: adjust height based on resolution
-  height: ${({ height }) => height || '300px'};
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  background-image: ${({ imgUrl }) => `url(${imgUrl})`};
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 0;
+  padding-top: 56.25%; // 16:9
 
   .gradient {
     background: black;
@@ -41,7 +38,7 @@ const ImageBoxContainer = styled.div`
     top: 0;
     width: 100%;
     height: 100%;
-    color: ${({ theme }) => theme.palette.white};
+    color: ${({ theme }) => theme.palette.common.white};
   }
 
   .info-bar {
@@ -51,20 +48,15 @@ const ImageBoxContainer = styled.div`
     padding: ${({ theme, paddingSize }) => theme.spacing(paddingSize)};
     padding-bottom: ${({ theme }) => theme.spacing(1)};
     box-sizing: border-box;
-
-    .expanding {
-      flex: 1;
-    }
   }
 
-  .spacer {
+  .expanding {
     flex: 1;
   }
 `;
 
 const ImageBox = ({
   theme,
-  height,
   imgUrl,
   name,
   header,
@@ -73,22 +65,17 @@ const ImageBox = ({
   paddingSize = 2,
 }) => {
   return (
-    <ImageBoxContainer theme={theme} height={height} paddingSize={paddingSize}>
-      <img src={imgUrl} alt={name} />
+    <ImageBoxContainer theme={theme} paddingSize={paddingSize} imgUrl={imgUrl}>
       <div className='gradient' />
       <div className='content'>
-        <VerticalLayout
-          noBackground
-          header={header}
-          footer={
-            <div className='info-bar'>
-              <Typography variant={headerVariant} className='expanding'>
-                {name}
-              </Typography>
-              {children}
-            </div>
-          }
-        ></VerticalLayout>
+        {header}
+        <div className='expanding' />
+        <div className='info-bar'>
+          <Typography variant={headerVariant} className='expanding'>
+            {name}
+          </Typography>
+          {children}
+        </div>
       </div>
     </ImageBoxContainer>
   );

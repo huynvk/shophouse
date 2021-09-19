@@ -10,70 +10,96 @@ import {
 import HeaderImage from './HeaderImage';
 import { Box, Button, Typography } from '@material-ui/core';
 import Icon from 'components/Icons';
+import { useItemDetails, useShopDetails } from 'hooks/api';
+import { useParams } from 'react-router-dom';
+import { Loadable } from 'components/Progress';
 
-const ItemDetailsScreen = ({
-  name,
-  imgUrl,
-  status,
-  statusDetails,
-  price,
-  currency,
-  ship,
-  shopName,
-  shopAddress,
-  likeCount,
-  description,
-}) => {
+const ItemFooter = () => (
+  <Footer>
+    <Button variant='contained' color='primary'>
+      Đặt trước
+    </Button>
+  </Footer>
+);
+
+const InfoRow = ({ icon, children, loading }) => {
   return (
-    <VerticalLayout
-      footer={
-        <Footer>
-          <Button variant='contained' color='primary'>
-            Đặt trước
-          </Button>
-        </Footer>
-      }
-    >
-      <HeaderImage imgUrl={imgUrl} name={name} />
+    <Row>
+      <Icon icon={icon} size='lg' />
+      <HorizontalSpacer />
+      <Loadable loading={loading}>
+        {typeof children === 'string' ? (
+          <Typography>{children}</Typography>
+        ) : (
+          children || <div />
+        )}
+      </Loadable>
+    </Row>
+  );
+};
+
+const ItemDetailsScreen = () => {
+  const { id: itemId } = useParams();
+  const { data: itemDetails, loading: loadingItem } = useItemDetails(itemId);
+  let {
+    name,
+    imgUrl,
+    status,
+    statusDetails,
+    price,
+    currency,
+    likeCount,
+    description,
+    shopId,
+  } = itemDetails || {};
+
+  const { data: shopDetails, loading: loadingShop } = useShopDetails(shopId, {
+    lazy: !shopId,
+  });
+  let { name: shopName, ship, address: shopAddress } = shopDetails || {};
+
+  return (
+    <VerticalLayout footer={<ItemFooter />}>
+      <HeaderImage imgUrl={imgUrl} name={name} loading={loadingItem} />
       <PaddedContent>
         <Row>
-          <Typography color='primary' variant='h6'>
-            {status}
-          </Typography>
-          <HorizontalSpacer size={0.5} />
-          <Icon icon='Info' />
+          <Loadable size='lg' loading={loadingItem}>
+            <Typography color='primary' variant='h6'>
+              {status}
+            </Typography>
+            <HorizontalSpacer size={0.5} />
+            <Icon icon='Info' />
+          </Loadable>
         </Row>
-        <Row mt={-1} mb={1.5}>
-          <Typography color='textSecondary'>{statusDetails}</Typography>
-        </Row>
+        <Loadable loading={loadingItem}>
+          <Row mt={-1} mb={1.5}>
+            <Typography color='textSecondary'>{statusDetails}</Typography>
+          </Row>
+        </Loadable>
         <Divider />
-        <Row>
-          <Icon icon='Price' size='lg' />
-          <HorizontalSpacer />
-          <Typography>{`${price} ${currency}`}</Typography>
-        </Row>
-        <Row>
-          <Icon icon='Ship' size='lg' />
-          <HorizontalSpacer />
-          <Typography>{ship}</Typography>
-        </Row>
-        <Row>
-          <Icon icon='Location' size='lg' />
-          <HorizontalSpacer />
+        <InfoRow
+          icon='Price'
+          loading={loadingItem}
+        >{`${price} ${currency}`}</InfoRow>
+        <InfoRow icon='Ship' loading={loadingItem || loadingShop}>
+          {ship}
+        </InfoRow>
+        <InfoRow icon='Location' loading={loadingItem || loadingShop}>
           <Box>
             <Typography color='primary'>{shopName}</Typography>
             <Typography color='textSecondary'>{shopAddress}</Typography>
           </Box>
-        </Row>
-        <Row>
-          <Icon icon='Heart' size='lg' />
-          <HorizontalSpacer />
-          <Typography>{likeCount} người thích</Typography>
-        </Row>
+        </InfoRow>
+        <InfoRow
+          icon='Heart'
+          loading={loadingItem}
+        >{`${likeCount} người thích`}</InfoRow>
         <Divider />
-        <Row>
-          <Typography>{description}</Typography>
-        </Row>
+        <Loadable loading={loadingItem}>
+          <Row>
+            <Typography>{description}</Typography>
+          </Row>
+        </Loadable>
       </PaddedContent>
     </VerticalLayout>
   );

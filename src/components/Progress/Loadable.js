@@ -1,6 +1,6 @@
 import { LoadingPlaceHolder } from '.';
 
-const Loadable = ({ size, loading, children }) => {
+const Loadable = ({ size = 'md', loading, children }) => {
   if (loading) {
     return <LoadingPlaceHolder size={size} />;
   }
