@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
-import { ThemeProvider as StyledComponentThemeProvider } from 'styled-components';
 import { RestfulProvider } from 'hooks/restful';
 import theme from 'config/theme';
 import App from './App';
@@ -11,13 +10,11 @@ import './index.scss';
 ReactDOM.render(
   <React.StrictMode>
     <RestfulProvider base='http://localhost:4000'>
-      <StyledComponentThemeProvider theme={theme}>
-        <StyledEngineProvider injectFirst>
-          <ThemeProvider theme={theme}>
-            <App />
-          </ThemeProvider>
-        </StyledEngineProvider>
-      </StyledComponentThemeProvider>
+      <StyledEngineProvider injectFirst>
+        <ThemeProvider theme={theme}>
+          <App />
+        </ThemeProvider>
+      </StyledEngineProvider>
     </RestfulProvider>
   </React.StrictMode>,
   document.getElementById('root')

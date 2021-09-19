@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import { styled } from '@mui/system';
 
-const Divider = styled.div`
+const Divider = styled('div')`
   ${({ theme }) => `
     width: ${theme.spacing(6)};
     height: 1px;

@@ -39,7 +39,7 @@ const BookingScreen = ({
     <VerticalLayout
       header={
         <Box bgcolor='primary.main'>
-          <Toolbar color='white'>
+          <Toolbar>
             <IconButton edge='start' aria-label='back' size='large'>
               <BackButton light />
             </IconButton>

@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import { styled } from '@mui/system';
 import { withTheme } from '@mui/styles';
 import { Typography } from '@mui/material';
 
-const ImageBoxContainer = styled.div`
+const ImageBoxContainer = styled('div')`
   position: relative;
   overflow: hidden;
   background-image: ${({ imgUrl }) => `url(${imgUrl})`};

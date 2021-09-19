@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import { styled } from '@mui/system';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import routes from 'config/route';
 
-const RootView = styled.div`
+const RootView = styled('div')`
   width: 100vw;
   height: 100vh;
   background-color: ${({ theme }) => theme.palette.background};

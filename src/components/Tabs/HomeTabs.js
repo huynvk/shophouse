@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import { styled } from '@mui/system';
 
 import Icon from 'components/Icons';
 import { Link } from 'react-router-dom';
