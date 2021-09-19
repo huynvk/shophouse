@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import { withMuiTheme } from 'hoc';
+import { withTheme } from '@mui/styles';
 
 import Account from './Account';
 import Heart from './Heart';
@@ -34,7 +34,7 @@ const sizeMap = {
   xl: 3,
 };
 
-const Icon = withMuiTheme(
+const Icon = withTheme(
   ({ theme, color = 'primary.main', size = 'md', icon, ...props }) => {
     const Component = mappings[icon];
     if (!Component) {

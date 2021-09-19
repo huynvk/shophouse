@@ -1,20 +1,16 @@
 import React from 'react';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import ArrowBackIcon from '@material-ui/icons/ArrowBackSharp';
-import { Box } from '@material-ui/core';
-import { withMuiTheme } from 'hoc';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
+import ArrowBackIcon from '@mui/icons-material/ArrowBackSharp';
+import { Box } from '@mui/material';
+import { withTheme } from '@mui/styles';
 
 const ToolbarHeader = ({ theme, title }) => {
   return (
     <Box bgcolor='primary.main'>
       <Toolbar>
-        <IconButton
-          edge={false}
-          aria-label='back'
-          style={{ marginLeft: theme.spacing(-2) }}
-        >
+        <IconButton edge='start' aria-label='back' size='large'>
           <ArrowBackIcon />
         </IconButton>
         <Typography variant='h6'>{title}</Typography>
@@ -23,4 +19,4 @@ const ToolbarHeader = ({ theme, title }) => {
   );
 };
 
-export default withMuiTheme(ToolbarHeader);
+export default withTheme(ToolbarHeader);

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import { ThemeProvider as StyledComponentThemeProvider } from 'styled-components';
 import { RestfulProvider } from 'hooks/restful';
 import theme from 'config/theme';
@@ -12,9 +12,11 @@ ReactDOM.render(
   <React.StrictMode>
     <RestfulProvider base='http://localhost:4000'>
       <StyledComponentThemeProvider theme={theme}>
-        <ThemeProvider theme={theme}>
-          <App />
-        </ThemeProvider>
+        <StyledEngineProvider injectFirst>
+          <ThemeProvider theme={theme}>
+            <App />
+          </ThemeProvider>
+        </StyledEngineProvider>
       </StyledComponentThemeProvider>
     </RestfulProvider>
   </React.StrictMode>,

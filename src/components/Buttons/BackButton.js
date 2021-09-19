@@ -1,4 +1,4 @@
-import { useTheme } from '@material-ui/core';
+import { useTheme } from '@mui/material';
 import { BackArrow } from 'components/Icons';
 
 const BackButton = ({ light, size = 2 }) => {

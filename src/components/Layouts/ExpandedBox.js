@@ -1,4 +1,4 @@
-const { Box } = require('@material-ui/core');
+const { Box } = require('@mui/material');
 
 const ExpandedBox = ({ children, ...props }) => (
   <Box

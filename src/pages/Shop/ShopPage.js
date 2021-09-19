@@ -1,6 +1,6 @@
-import { Grid, IconButton, Typography } from '@material-ui/core';
+import { Grid, IconButton, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 import Icon from 'components/Icons';
 import { ToolbarHeader } from 'components/Headers';
 import {
@@ -24,7 +24,7 @@ const ShopInfo = ({ name, address, ship, liked, loading }) => (
         </Grid>
         <Grid item>
           <Loadable loading={loading} size='sm'>
-            <IconButton>
+            <IconButton size="large">
               <FavoriteIcon color={liked ? 'primary' : 'action'} />
             </IconButton>
           </Loadable>

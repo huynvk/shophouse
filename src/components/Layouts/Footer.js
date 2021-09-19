@@ -1,8 +1,8 @@
-import { Paper } from '@material-ui/core';
-import { withMuiTheme } from 'hoc';
+import { Paper } from '@mui/material';
+import { withTheme } from '@mui/styles';
 import { PaddedContent } from '.';
 
-const Footer = withMuiTheme(({ theme, children }) => (
+const Footer = withTheme(({ theme, children }) => (
   <Paper elevation={3} square style={{ overflow: 'hidden' }}>
     <PaddedContent paddingSize='sm'>{children}</PaddedContent>
   </Paper>
