@@ -15,7 +15,7 @@ const StoryContainer = ({ width, height, children, mock = {} }) => {
           <Box bgcolor={theme.palette.grey[300]}>
             <Container
               maxWidth={width}
-              style={{
+              sx={{
                 height,
                 padding: 0,
                 background: theme.palette.background,

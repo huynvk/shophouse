@@ -55,14 +55,14 @@ const ItemCard = ({
         <CardMedia
           image={imgUrl}
           title={name}
-          style={{
+          sx={{
             width: '0',
             paddingLeft: '40%',
             paddingTop: '40%', // Minimum height is 40% of width
             justifySelf: 'stretch',
           }}
         />
-        <CardContent style={{ flex: 1 }}>
+        <CardContent sx={{ flex: 1 }}>
           <ContentContainer>
             <Head>
               <Price>
@@ -70,7 +70,7 @@ const ItemCard = ({
                   <Typography variant='h6'>{name}</Typography>
                 </Row>
                 <IconButton
-                  style={{
+                  sx={{
                     marginTop: theme.spacing(-1),
                     marginRight: theme.spacing(-1),
                   }}

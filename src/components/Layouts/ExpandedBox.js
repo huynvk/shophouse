@@ -8,7 +8,7 @@ const ExpandedBox = ({ children, ...props }) => (
     alignItems='center'
     margin='center'
     flexDirection='column'
-    style={{ with: '100%', height: '100%' }}
+    sx={{ with: '100%', height: '100%' }}
     {...props}
   >
     {children}

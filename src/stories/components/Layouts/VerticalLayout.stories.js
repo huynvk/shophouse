@@ -10,9 +10,9 @@ export default {
 const Template = ({ width, height, ...props }) => (
   <StoryContainer width={width} height={height}>
     <VerticalLayout
-      header={<div style={{ background: 'green' }}>Header</div>}
-      footer={<div style={{ background: 'green' }}>Footer</div>}
-      style={{
+      header={<div sx={{ background: 'green' }}>Header</div>}
+      footer={<div sx={{ background: 'green' }}>Footer</div>}
+      sx={{
         background: 'white',
         border: '1px solid red',
       }}
