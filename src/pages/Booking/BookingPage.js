@@ -10,38 +10,37 @@ import {
   Box,
   Button,
   Checkbox,
-  FormControl,
   Grid,
   IconButton,
-  TextField,
   Toolbar,
   Typography,
 } from '@mui/material';
+import { useForm } from 'react-hook-form';
 import Icon from 'components/Icons';
 import { BackButton } from 'components/Buttons';
 import { withTheme } from '@mui/styles';
-import { useItemDetails } from 'hooks/api';
+import { useItemDetails, usePostBooking } from 'hooks/api';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { useState } from 'react';
 import { Loadable } from 'components/Progress';
+import { FormTextField } from 'components/Form';
 
 const BookingPage = ({ theme, hasAccount, createAccount }) => {
   const { id } = useParams();
   const { data: itemDetails, loading } = useItemDetails(id);
-  const { name, price, currency } = itemDetails || {};
   const {
-    amount,
-    recipientAddress,
-    recipient,
-    recipientPhone,
-    note,
-  } = useState({
-    amount: 0,
-    recipientAddress: '',
-    recipient: '',
-    recipientPhone: '',
-    note: '',
-  });
+    mutate: createBooking,
+    // loading: creatingBooking // @TODO: handle loading state
+  } = usePostBooking();
+  const { name, price, currency } = itemDetails || {};
+
+  const { control, handleSubmit } = useForm();
+  const onSubmit = async (data) => {
+    try {
+      await createBooking(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   const renderFooter = () => (
     <Footer>
@@ -70,6 +69,7 @@ const BookingPage = ({ theme, hasAccount, createAccount }) => {
             color='primary'
             fullWidth
             disabled={loading}
+            type='submit'
           >
             Đặt trước
           </Button>
@@ -92,79 +92,72 @@ const BookingPage = ({ theme, hasAccount, createAccount }) => {
   );
 
   return (
-    <VerticalLayout header={renderHeader()} footer={renderFooter()}>
-      <PaddedContent>
-        <Row>
-          <Loadable size='lg' loading={loading}>
-            <Typography variant='h1'>{name}</Typography>
-          </Loadable>
-        </Row>
-        <Row>
-          <Icon icon='Price' size='lg' />
-          <HorizontalSpacer />
-          <Loadable size='md' loading={loading}>
-            <Typography color='textSecondary'>{`${price} ${currency}`}</Typography>
-          </Loadable>
-        </Row>
-        <form noValidate autoComplete='off'>
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <VerticalLayout header={renderHeader()} footer={renderFooter()}>
+        <PaddedContent>
           <Row>
-            <FormControl fullWidth>
-              <TextField
-                required
-                id='amount'
-                label='Số lượng'
-                value={amount}
-                variant='standard'
-              />
-            </FormControl>
+            <Loadable size='lg' loading={loading}>
+              <Typography variant='h1'>{name}</Typography>
+            </Loadable>
           </Row>
           <Row>
-            <FormControl fullWidth>
-              <TextField
-                required
-                id='address'
-                label='Địa chỉ nhận hàng'
-                value={recipientAddress}
-                variant='standard'
-              />
-            </FormControl>
+            <Icon icon='Price' size='lg' />
+            <HorizontalSpacer />
+            <Loadable size='md' loading={loading}>
+              <Typography color='textSecondary'>{`${price} ${currency}`}</Typography>
+            </Loadable>
           </Row>
           <Row>
-            <FormControl fullWidth>
-              <TextField
-                required
-                id='recipient'
-                label='Tên người nhận'
-                value={recipient}
-                variant='standard'
-              />
-            </FormControl>
+            <FormTextField
+              name='amount'
+              label='Số lượng'
+              type='number'
+              defaultValue={1}
+              rules={{ min: 0 }}
+              control={control}
+              required
+              fullWidth
+            />
           </Row>
           <Row>
-            <FormControl fullWidth>
-              <TextField
-                required
-                id='recipientPhone'
-                label='Số điện thoại'
-                value={recipientPhone}
-                variant='standard'
-              />
-            </FormControl>
+            <FormTextField
+              name='address'
+              label='Địa chỉ nhận hàng'
+              control={control}
+              required
+              fullWidth
+            />
           </Row>
           <Row>
-            <FormControl fullWidth>
-              <TextField
-                id='note'
-                label='Ghi chú'
-                value={note}
-                multiline
-                variant='standard'
-              />
-            </FormControl>
+            <FormTextField
+              name='recipient'
+              label='Tên người nhận'
+              control={control}
+              required
+              fullWidth
+            />
           </Row>
-        </form>
-      </PaddedContent>
-    </VerticalLayout>
+          <Row>
+            <FormTextField
+              name='recipientPhone'
+              label='Số điện thoại'
+              control={control}
+              fullWidth
+              required
+            />
+          </Row>
+          <Row>
+            <FormTextField
+              name='note'
+              label='Ghi chú'
+              control={control}
+              fullWidth
+              required
+            />
+          </Row>
+        </PaddedContent>
+      </VerticalLayout>
+    </form>
   );
 };
 

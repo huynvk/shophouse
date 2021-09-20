@@ -1,4 +1,7 @@
-const { useGetWithCustomMock } = require('hooks/restful');
+const {
+  useGetWithCustomMock,
+  useMutateWithCustomMock,
+} = require('hooks/restful');
 
 export const useShopList = (params) =>
   useGetWithCustomMock('shopList', { path: '/shops', ...params });
@@ -11,3 +14,9 @@ export const useShopItems = (shopId, params) =>
 
 export const useItemDetails = (itemId, params) =>
   useGetWithCustomMock('itemDetails', { path: `/items/${itemId}` });
+
+export const usePostBooking = () =>
+  useMutateWithCustomMock('postBooking', {
+    verb: 'POST',
+    path: '/bookings',
+  });

@@ -121,5 +121,14 @@
       "shopId": 2
     }
   ],
-  "bookings": []
+  "bookings": [
+    {
+      "amount": 1,
+      "address": "231 XVNT, Phường 25, Q Bình Thạnh",
+      "recipient": "Huy",
+      "recipientPhone": "0988732761",
+      "note": "Nhiều gấp đôi nha anh",
+      "id": 2
+    }
+  ]
 }
