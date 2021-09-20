@@ -1,72 +1,128 @@
-import { useEffect, useState } from 'react';
-import { ItemDetailsScreen } from '.';
+import PropTypes from 'prop-types';
+import {
+  VerticalLayout,
+  PaddedContent,
+  Row,
+  HorizontalSpacer,
+  Divider,
+  Footer,
+} from 'components/Layouts';
+import HeaderImage from './HeaderImage';
+import { Box, Button, Chip, Typography } from '@mui/material';
+import Icon from 'components/Icons';
+import { useItemDetails, useShopDetails } from 'hooks/api';
+import { useParams } from 'react-router-dom';
+import { Loadable } from 'components/Progress';
+import { useHistory } from 'react-router-dom';
 
-const mockItemData = {
-  name: 'Chả giò',
-  imgUrl:
-    'https://giaoducnamchau.edu.vn/wp-content/uploads/2021/05/well-foods-microbiome-superJumbo.jpg',
-  status: 'SẮP MỞ BÁN',
-  statusDetails: 'Mở bán lúc 11h thứ bảy 05/09/2021',
-  price: 100000,
-  currency: 'VNĐ',
-  ship: 'Miễn phí giao hàng cho cư dân Lavita Garden',
-  shopName: 'Shophouse TM 16',
-  shopAddress: 'Block A, Chung cư Lavita Garden',
-  likeCount: 12,
-  description:
-    'CHẢ GIÒ CUỐN bánh tráng xốp giòn. Nguyên liệu sạch lựa chọn kĩ lưỡng. Em tính qua tuần mới cuốn nhưng có vài chị đặt nên e nhận thêm 7 phần nữa ạ.',
+const ItemFooter = ({ itemId }) => {
+  const history = useHistory();
+  return (
+    <Footer>
+      <Button
+        variant='contained'
+        color='primary'
+        onClick={() => history.push(`/item/${itemId}/booking`)}
+      >
+        Đặt trước
+      </Button>
+    </Footer>
+  );
 };
 
-const useItemData = (props) => {
-  const [item, setItem] = useState({});
-  const [loading, setLoading] = useState(false);
-
-  const loadItemDetails = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setItem(mockItemData);
-      setLoading(false);
-    }, 500);
-  };
-
-  useEffect(() => {
-    loadItemDetails();
-  }, []);
-
-  return [item, loading, loadItemDetails];
+const InfoRow = ({ icon, children, loading }) => {
+  return (
+    <Row>
+      <Icon icon={icon} size='lg' />
+      <HorizontalSpacer />
+      <Loadable loading={loading}>
+        {typeof children === 'string' ? (
+          <Typography>{children}</Typography>
+        ) : (
+          children || <div />
+        )}
+      </Loadable>
+    </Row>
+  );
 };
 
-const ItemDetailsPage = () => {
-  const [item] = useItemData();
-
-  const {
+const ItemDetailsScreen = () => {
+  const { id: itemId } = useParams();
+  const { data: itemDetails, loading: loadingItem } = useItemDetails(itemId);
+  let {
     name,
     imgUrl,
     status,
     statusDetails,
     price,
     currency,
-    ship,
-    shopName,
-    shopAddress,
     likeCount,
     description,
-  } = item;
+    shopId,
+  } = itemDetails || {};
+
+  const { data: shopDetails, loading: loadingShop } = useShopDetails(shopId, {
+    lazy: !shopId,
+  });
+  let { name: shopName, ship, address: shopAddress } = shopDetails || {};
+
   return (
-    <ItemDetailsScreen
-      name={name}
-      imgUrl={imgUrl}
-      status={status}
-      statusDetails={statusDetails}
-      price={price}
-      currency={currency}
-      ship={ship}
-      shopName={shopName}
-      shopAddress={shopAddress}
-      likeCount={likeCount}
-      description={description}
-    />
+    <VerticalLayout footer={<ItemFooter itemId={itemId} />}>
+      <HeaderImage imgUrl={imgUrl} name={name} loading={loadingItem} />
+      <PaddedContent>
+        <Row>
+          <Loadable size='lg' loading={loadingItem}>
+            <Chip label={status} />
+
+            <HorizontalSpacer size={0.5} />
+            <Icon icon='Info' />
+          </Loadable>
+        </Row>
+        <Loadable loading={loadingItem}>
+          <Row mt={-1} mb={1.5}>
+            <Typography color='textSecondary'>{statusDetails}</Typography>
+          </Row>
+        </Loadable>
+        <InfoRow
+          icon='Price'
+          loading={loadingItem}
+        >{`${price} ${currency}`}</InfoRow>
+        <InfoRow icon='Ship' loading={loadingItem || loadingShop}>
+          {ship}
+        </InfoRow>
+        <InfoRow icon='Location' loading={loadingItem || loadingShop}>
+          <Box>
+            <Typography color='primary'>{shopName}</Typography>
+            <Typography color='textSecondary'>{shopAddress}</Typography>
+          </Box>
+        </InfoRow>
+        <InfoRow
+          icon='Heart'
+          loading={loadingItem}
+        >{`${likeCount} người thích`}</InfoRow>
+        <Divider />
+        <Loadable loading={loadingItem}>
+          <Row>
+            <Typography>{description}</Typography>
+          </Row>
+        </Loadable>
+      </PaddedContent>
+    </VerticalLayout>
   );
 };
 
-export default ItemDetailsPage;
+ItemDetailsScreen.propTypes = {
+  name: PropTypes.string,
+  imgUrl: PropTypes.string,
+  status: PropTypes.string,
+  statusDetails: PropTypes.string,
+  price: PropTypes.number,
+  currency: PropTypes.string,
+  ship: PropTypes.string,
+  shopName: PropTypes.string,
+  shopAddress: PropTypes.string,
+  likeCount: PropTypes.number,
+  description: PropTypes.string,
+};
+
+export default ItemDetailsScreen;
