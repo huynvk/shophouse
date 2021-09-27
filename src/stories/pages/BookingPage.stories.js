@@ -14,18 +14,7 @@ const Template = ({ mock, ...props }) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {
-  mock: {
-    itemDetails: {
-      loading: false,
-      data: {
-        name: 'Chả giò',
-        price: 100000,
-        currency: 'VNĐ',
-      },
-    },
-  },
-};
+Default.args = {};
 
 export const Loading = Template.bind({});
 Loading.args = {
