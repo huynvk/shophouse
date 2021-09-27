@@ -4,12 +4,13 @@ import reportWebVitals from './reportWebVitals';
 import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import { RestfulProvider } from 'hooks/restful';
 import theme from 'config/theme';
+import config from 'config/config';
 import App from './App';
 import './index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <RestfulProvider base='http://localhost:4000'>
+    <RestfulProvider base={config.apiBaseURL}>
       <StyledEngineProvider injectFirst>
         <ThemeProvider theme={theme}>
           <App />
