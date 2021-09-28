@@ -13,6 +13,12 @@ import PriceTags from './PriceTags';
 import Location from './Location';
 import ShopHouse from './ShopHouse';
 import Plus from './Plus';
+import Zalo from './Zalo';
+import Messenger from './Messenger';
+import Website from './Website';
+import Phone from './Phone';
+import Calendar from './Calendar';
+import { Box } from '@mui/system';
 
 const mappings = {
   Account,
@@ -26,6 +32,11 @@ const mappings = {
   DocumentPaper,
   ShopHouse,
   Plus,
+  Zalo,
+  Messenger,
+  Website,
+  Phone,
+  Calendar,
 };
 const sizeMap = {
   sm: 0.5,
@@ -45,12 +56,19 @@ const Icon = withTheme(
     const renderSize = theme.spacing(sizeMap[size] || size);
 
     return (
-      <Component
-        color={renderColor}
+      <Box
         width={renderSize}
         height={renderSize}
-        {...props}
-      />
+        justifyContent='center'
+        alignItems='center'
+      >
+        <Component
+          width={renderSize}
+          height={renderSize}
+          color={renderColor}
+          {...props}
+        />
+      </Box>
     );
   }
 );
@@ -75,4 +93,9 @@ export {
   DocumentPaper,
   ShopHouse,
   Plus,
+  Zalo,
+  Messenger,
+  Website,
+  Phone,
+  Calendar,
 };

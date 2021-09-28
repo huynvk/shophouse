@@ -7,8 +7,8 @@ export default {
   component: BookingPage,
 };
 
-const Template = ({ mock, ...props }) => (
-  <StoryContainer width='sm' height='800px' mock={mock}>
+const Template = ({ mockProducer, ...props }) => (
+  <StoryContainer width='sm' height='800px' mockProducer={mockProducer}>
     <BookingPage {...props} />
   </StoryContainer>
 );
@@ -18,9 +18,7 @@ Default.args = {};
 
 export const Loading = Template.bind({});
 Loading.args = {
-  mock: {
-    itemDetails: {
-      loading: true,
-    },
+  mockProducer: (mock) => {
+    mock.itemDetails.loading = true;
   },
 };

@@ -15,6 +15,9 @@ export const useShopItems = (shopId, params) =>
 export const useItemDetails = (itemId, params) =>
   useGetWithCustomMock('itemDetails', { path: `/items/${itemId}` });
 
+export const useUser = (userId, params) =>
+  useGetWithCustomMock('user', { path: `/users/${userId}` });
+
 export const usePostBooking = () =>
   useMutateWithCustomMock('postBooking', {
     verb: 'POST',

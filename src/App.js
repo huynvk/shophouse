@@ -5,7 +5,7 @@ import routes from 'config/route';
 const RootView = styled('div')`
   width: 100vw;
   height: 100vh;
-  background-color: ${({ theme }) => theme.palette.background};
+  background-color: #cdcdcd;
 `;
 
 const AppRouter = () => (

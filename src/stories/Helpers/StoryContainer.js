@@ -1,4 +1,5 @@
 import React from 'react';
+import produce from 'immer';
 import theme from 'config/theme';
 
 import { Container, Box } from '@mui/material';
@@ -8,18 +9,23 @@ import { RestfulMockProvider } from 'hooks/restful';
 import defaultMocks from 'hooks/api/mock';
 import '../../index.scss';
 
-const StoryContainer = ({ width, height, children, mock = {} }) => {
+const StoryContainer = ({
+  width,
+  height,
+  children,
+  mockProducer = (draft) => draft,
+}) => {
   return (
     <Router>
-      <RestfulMockProvider value={{ ...defaultMocks, ...mock }}>
+      <RestfulMockProvider value={produce(defaultMocks, mockProducer)}>
         <ThemeProvider theme={theme}>
-          <Box bgcolor={theme.palette.grey[300]}>
+          <Box bgcolor={theme.palette.grey[500]}>
             <Container
               maxWidth={width}
               sx={{
                 height,
-                padding: 0,
-                background: theme.palette.background,
+                padding: '0 !important',
+                background: theme.palette.grey[300],
               }}
             >
               {children}

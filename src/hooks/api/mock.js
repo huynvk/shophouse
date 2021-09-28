@@ -77,17 +77,58 @@ const mocks = {
   itemDetails: {
     loading: false,
     data: {
+      id: 1,
       name: 'Chả giò',
       imgUrl:
         'https://giaoducnamchau.edu.vn/wp-content/uploads/2021/05/well-foods-microbiome-superJumbo.jpg',
-      status: 'SẮP MỞ BÁN',
+      status: 'Cho đặt trước',
+      sellCondition: 'Mở bán khi tổng đơn trên 3 triệu',
       statusDetails: 'Mở bán lúc 11h thứ bảy 05/09/2021',
-      price: 100000,
-      currency: 'VNĐ',
-      hasLiked: true,
-      likeCount: 12,
+      menu: [
+        {
+          name: 'Chả giò',
+          price: 100000,
+          currency: 'VNĐ',
+          unit: 'Hộp 20 cuốn',
+        },
+        {
+          name: 'Chả giò',
+          price: 100000,
+          currency: 'VNĐ',
+          unit: 'Hộp 20 cuốn',
+        },
+        {
+          name: 'Chả giò',
+          price: 100000,
+          currency: 'VNĐ',
+          unit: 'Hộp 20 cuốn',
+        },
+      ],
+      externalLink: {
+        link: 'https://huynvk.dev',
+        title: 'Chợ Online Lavita Garden',
+        description: 'Facebook Page',
+      },
+      promotions: [
+        'Giảm 50.000 VNĐ cho hoá đơn trên 500.000 VNĐ',
+        'Miễn phí ship cho cư dân Lavita Garden',
+        'Miễn phí ship trong vòng 5km cho hoá đơn trên 300.000 VNĐ',
+      ],
       description:
-        'CHẢ GIÒ CUỐN bánh tráng xốp giòn. Nguyên liệu sạch lựa chọn kĩ lưỡng. Em tính qua tuần mới cuốn nhưng có vài chị đặt nên e nhận thêm 7 phần nữa ạ.',
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut nisi ut nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    },
+  },
+  user: {
+    loading: false,
+    data: {
+      id: 1,
+      name: 'Phạm Anh Đào',
+      address:
+        'Khu A, chung cư Lavita Garden, đường số 3, Trường Thọ, Thủ Đức, TP HCM',
+      phone: '0389930747',
+      zalo: '0389930747',
+      messenger: 'anhdaopta',
+      website: 'https://huynvk.dev',
     },
   },
 };

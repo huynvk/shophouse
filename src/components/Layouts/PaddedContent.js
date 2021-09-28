@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import { Box } from '@mui/material';
 
 const paddingMap = {
-  sm: 1,
-  md: 2,
-  lg: 3,
+  sm: 0.5,
+  md: 1,
+  lg: 2,
 };
 
 const PaddedContent = ({

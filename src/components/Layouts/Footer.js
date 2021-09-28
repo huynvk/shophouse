@@ -4,7 +4,7 @@ import { PaddedContent } from '.';
 
 const Footer = withTheme(({ theme, children }) => (
   <Paper elevation={3} square sx={{ overflow: 'hidden' }}>
-    <PaddedContent paddingSize='sm'>{children}</PaddedContent>
+    <PaddedContent paddingSize='md'>{children}</PaddedContent>
   </Paper>
 ));
 

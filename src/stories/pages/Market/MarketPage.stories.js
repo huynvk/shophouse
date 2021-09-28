@@ -7,8 +7,8 @@ export default {
   component: MarketPage,
 };
 
-const Template = ({ mock, ...props }) => (
-  <StoryContainer width='sm' height='800px' mock={mock}>
+const Template = ({ mockProducer, ...props }) => (
+  <StoryContainer width='sm' height='800px' mockProducer={mockProducer}>
     <MarketPage {...props} />
   </StoryContainer>
 );
@@ -18,31 +18,22 @@ Default.args = {};
 
 export const LoadingMenu = Template.bind({});
 LoadingMenu.args = {
-  mock: {
-    shopItems: {
-      loading: true,
-    },
+  mockProducer: (mock) => {
+    mock.shopItems.loading = true;
   },
 };
 
 export const Loading = Template.bind({});
 Loading.args = {
-  mock: {
-    shopList: {
-      loading: true,
-    },
-    shopItems: {
-      loading: true,
-    },
+  mockProducer: (mock) => {
+    mock.shopList.loading = true;
+    mock.shopItems.loading = true;
   },
 };
 
 export const EmptyScreen = Template.bind({});
 EmptyScreen.args = {
-  mock: {
-    shopList: {
-      data: [],
-      loading: false,
-    },
+  mockProducer: (mock) => {
+    mock.shopList.data = [];
   },
 };
