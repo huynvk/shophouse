@@ -1,6 +1,5 @@
+import { VerticalLayout } from 'components/Layouts';
 import { HomeTabs } from 'components/Tabs';
-
-const { VerticalLayout } = require('components/Layouts');
 
 const StoreScreen = ({ items, ...props }) => (
   <>

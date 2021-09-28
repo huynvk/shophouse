@@ -1,4 +1,4 @@
-const { Box } = require('@mui/material');
+import { Box } from '@mui/system';
 
 const HorizontalSpacer = ({ size = 1 }) => <Box mr={size} />;
 

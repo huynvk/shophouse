@@ -1,4 +1,4 @@
-const { Box } = require('@mui/material');
+import { Box } from '@mui/system';
 
 const ExpandedBox = ({ children, ...props }) => (
   <Box

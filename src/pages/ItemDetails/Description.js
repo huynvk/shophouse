@@ -1,5 +1,4 @@
-import { Link } from '@mui/icons-material';
-import { Typography } from '@mui/material';
+import { Typography, Link } from '@mui/material';
 import { useState } from 'react';
 
 const Description = ({ description }) => {

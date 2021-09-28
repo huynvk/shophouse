@@ -1,7 +1,6 @@
-const { Link } = require('@mui/icons-material');
-const { Typography, Grid, Button } = require('@mui/material');
-const { Footer, Row } = require('components/Layouts');
-const { useHistory } = require('react-router-dom');
+import { Typography, Grid, Button, Link } from '@mui/material';
+import { Footer, Row } from 'components/Layouts';
+import { useHistory } from 'react-router-dom';
 
 const ItemFooter = ({ itemId }) => {
   const history = useHistory();

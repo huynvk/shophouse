@@ -1,7 +1,4 @@
-const {
-  useGetWithCustomMock,
-  useMutateWithCustomMock,
-} = require('hooks/restful');
+import { useGetWithCustomMock, useMutateWithCustomMock } from 'hooks/restful';
 
 export const useShopList = (params) =>
   useGetWithCustomMock('shopList', { path: '/shops', ...params });

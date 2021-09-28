@@ -3,7 +3,7 @@ import { styled } from '@mui/system';
 import Icon from 'components/Icons';
 import { Link } from 'react-router-dom';
 import { useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min';
-const { Paper, Box, Typography } = require('@mui/material');
+import { Paper, Box, Typography } from '@mui/material';
 
 // This component doesn't use tab from material ui, since it seems too complex
 // Applied a simple solution first
