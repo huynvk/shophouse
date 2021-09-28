@@ -2,148 +2,21 @@ import {
   VerticalLayout,
   Row,
   HorizontalSpacer,
-  Footer,
   VerticalSpacer,
   PaddedContent,
 } from 'components/Layouts';
-import {
-  Button,
-  CardMedia,
-  Chip,
-  Typography,
-  Link,
-  Card,
-  CardContent,
-  List,
-  ListItem,
-  ListItemText,
-  Grid,
-} from '@mui/material';
-import Icon from 'components/Icons';
+import { CardMedia, Chip, Typography } from '@mui/material';
 import { useItemDetails, useUser } from 'hooks/api';
 import { useParams } from 'react-router-dom';
 import { Loadable } from 'components/Progress';
-import { useHistory } from 'react-router-dom';
 import { Box } from '@mui/system';
-import { useState } from 'react';
-
-const ItemFooter = ({ itemId }) => {
-  const history = useHistory();
-  return (
-    <Footer>
-      <Button
-        variant='contained'
-        color='primary'
-        onClick={() => history.push(`/item/${itemId}/booking`)}
-      >
-        Đặt trước
-      </Button>
-    </Footer>
-  );
-};
-
-const InfoRow = ({ icon, children, loading }) => {
-  return (
-    <Row mb={0.5}>
-      <Icon icon={icon} size='lg' />
-      <HorizontalSpacer />
-      <Loadable loading={loading}>
-        {typeof children === 'string' ? (
-          <Typography>{children}</Typography>
-        ) : (
-          children || <div />
-        )}
-      </Loadable>
-    </Row>
-  );
-};
-
-const ExternalLink = ({ link, title, description }) => {
-  return (
-    <Box
-      sx={{ bgcolor: 'grey.300', p: 0.5, pl: 1, pr: 1, mb: 1 }}
-      onClick={() => window.open(link, '_blank')}
-    >
-      <Typography>{title || link}</Typography>
-      {description && <Typography color='GrayText'>{description}</Typography>}
-    </Box>
-  );
-};
-
-const Description = ({ description }) => {
-  const [expanded, setExpanded] = useState(false);
-
-  if (!description) {
-    return <div />;
-  }
-
-  const canExpand = description.length > 300;
-  const truncatedValue = description.slice(0, 200) + '...';
-
-  return (
-    <Typography color='GrayText'>
-      {canExpand && !expanded ? truncatedValue : description}{' '}
-      {canExpand && (
-        <Link
-          underline='always'
-          color='primary'
-          onClick={() => setExpanded(!expanded)}
-          sx={{ cursor: 'pointer' }}
-        >
-          {expanded ? 'Thu gọn' : 'Xem thêm'}
-        </Link>
-      )}
-    </Typography>
-  );
-};
-
-const ContactPad = ({ phone, zalo, messenger, website }) => {
-  if (!phone && !zalo && !messenger && !website) {
-    return <></>;
-  }
-
-  return (
-    <Grid container display='flex'>
-      <Button
-        sx={{ flex: 1 }}
-        component='a'
-        href={`https://zalo.me/${zalo}`}
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        <Icon icon='Zalo' size='lg' />
-      </Button>
-      <Button
-        sx={{ flex: 1 }}
-        component='a'
-        href={`https://m.me/${messenger}`}
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        <Icon icon='Messenger' size='lg' />
-      </Button>
-      <Button
-        sx={{ flex: 1 }}
-        component='a'
-        href={website}
-        target='_blank'
-        rel='noopener noreferrer'
-      >
-        <Icon icon='Website' size='lg' />
-      </Button>
-      <Button sx={{ flex: 1 }}>
-        <Icon
-          icon='Phone'
-          size='lg'
-          component='a'
-          href={`tel://${phone}`}
-          target='_blank'
-          rel='noopener noreferrer'
-        />
-      </Button>
-    </Grid>
-  );
-};
+import ItemFooter from './ItemFooter';
+import InfoRow from './InfoRow';
+import ExternalLink from './ExternalLink';
+import Description from './Description';
+import ContactPad from './ContactPad';
+import Promotions from './Promotions';
+import Menu from './Menu';
 
 const ItemDetailsPage = () => {
   const { id: itemId } = useParams();
@@ -233,49 +106,16 @@ const ItemDetailsPage = () => {
       </Box>
       <PaddedContent>
         <Loadable size='lg' loading={loadingItem}>
-          <Card>
-            <CardContent sx={{ background: 'white' }}>
-              <Typography variant='h6'>Ưu đãi</Typography>
-              {promotions && promotions.length > 0 ? (
-                <List>
-                  {promotions.map((promotion, i) => (
-                    <ListItem key={i}>
-                      <ListItemText>{promotion}</ListItemText>
-                    </ListItem>
-                  ))}
-                </List>
-              ) : (
-                <Typography color='GrayText'>
-                  Tạm thời đã hết ưu đãi cho sản phẩm này
-                </Typography>
-              )}
-            </CardContent>
-          </Card>
+          <Promotions promotions={promotions} />
         </Loadable>
         {!loadingItem && menu && menu.length > 1 && (
           <>
             <VerticalSpacer />
-            <Card>
-              <CardContent sx={{ background: 'white' }}>
-                <Typography variant='h6'>Bảng giá</Typography>
-                <List>
-                  {menu.map(
-                    ({ name: menuItemName, price, unit, currency }, i) => (
-                      <ListItem key={i}>
-                        <ListItemText>{menuItemName}</ListItemText>
-                        <ListItemText align='right'>
-                          {unit
-                            ? `${price} ${currency} / ${unit}`
-                            : `${price} ${currency}`}
-                        </ListItemText>
-                      </ListItem>
-                    )
-                  )}
-                </List>
-              </CardContent>
-            </Card>
+            <Menu menu={menu} />
           </>
         )}
+
+        <VerticalSpacer size={5} />
       </PaddedContent>
     </VerticalLayout>
   );
