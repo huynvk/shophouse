@@ -18,8 +18,8 @@ const PaddedContent = ({
       display='flex'
       flexDirection='column'
       padding={paddingMap[paddingSize]}
-      {...props}
       flexGrow={fullHeight ? 1 : undefined}
+      {...props}
     >
       {children}
     </Box>

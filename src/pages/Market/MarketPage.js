@@ -1,21 +1,20 @@
 import { HomeTabs } from 'components/Tabs';
 import Icon from 'components/Icons';
-import { ShopList } from '.';
 import { SimpleTextHeader } from 'components/Headers';
 import { PaddedContent, VerticalLayout } from 'components/Layouts';
 import { Fab } from '@mui/material';
-import { useShopList } from 'hooks/api';
+import { useItemList } from 'hooks/api';
+import { ItemList } from 'pages/Shop';
 
 const MarketPage = () => {
-  const { data: shops, loading } = useShopList();
-
+  const { data: items, loading } = useItemList();
   return (
     <VerticalLayout
-      header={<SimpleTextHeader>Chợ Lavita Garden</SimpleTextHeader>}
+      header={<SimpleTextHeader>Shophouse.vn</SimpleTextHeader>}
       footer={<HomeTabs />}
       fab={
-        shops &&
-        shops.length > 0 && (
+        items &&
+        items.length > 0 && (
           <Fab color='primary' aria-label='add'>
             <Icon icon='Plus' size='lg' />
           </Fab>
@@ -23,7 +22,7 @@ const MarketPage = () => {
       }
     >
       <PaddedContent fullHeight>
-        <ShopList items={shops} loading={loading} />
+        <ItemList items={items} loading={loading} />
       </PaddedContent>
     </VerticalLayout>
   );

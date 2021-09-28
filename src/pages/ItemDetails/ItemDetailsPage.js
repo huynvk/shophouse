@@ -5,7 +5,7 @@ import {
   VerticalSpacer,
   PaddedContent,
 } from 'components/Layouts';
-import { CardMedia, Chip, Typography } from '@mui/material';
+import { CardMedia, Chip, IconButton, Typography } from '@mui/material';
 import { useItemDetails, useUser } from 'hooks/api';
 import { useParams } from 'react-router-dom';
 import { Loadable } from 'components/Progress';
@@ -17,6 +17,32 @@ import Description from './Description';
 import ContactPad from './ContactPad';
 import Promotions from './Promotions';
 import Menu from './Menu';
+import { ArrowBack, Share } from '@mui/icons-material';
+
+const Header = ({ shareData }) => (
+  <Box pl={1} pr={1} bgcolor='white' display='flex'>
+    <IconButton edge='start' aria-label='back' size='large'>
+      <ArrowBack />
+    </IconButton>
+    <Box flex={1} />
+    <IconButton
+      edge='start'
+      aria-label='back'
+      size='small'
+      onClick={async () => {
+        try {
+          console.log('shareData', shareData);
+          await navigator.share(shareData);
+          console.log('share successfully');
+        } catch (err) {
+          alert(err);
+        }
+      }}
+    >
+      <Share />
+    </IconButton>
+  </Box>
+);
 
 const ItemDetailsPage = () => {
   const { id: itemId } = useParams();
@@ -46,7 +72,19 @@ const ItemDetailsPage = () => {
       : undefined;
 
   return (
-    <VerticalLayout bg='primary' footer={<ItemFooter itemId={itemId} />}>
+    <VerticalLayout
+      bg='primary'
+      header={
+        <Header
+          shareData={{
+            title: `${name} | Shophouse.vn`,
+            text: description,
+            url: window.location.href,
+          }}
+        />
+      }
+      footer={<ItemFooter itemId={itemId} />}
+    >
       <Box sx={{ background: '#fff', p: 1 }}>
         <CardMedia
           image={imgUrl}

@@ -45,12 +45,13 @@ const LinkTab = ({ label, icon, selected, to, ...props }) => {
 
 const homeTabItems = [
   { label: 'Chợ', icon: 'PriceTags', path: '/' },
+  { label: 'Nhóm mua', icon: 'ShopHouse', path: '/group' },
   {
     label: 'Hoạt động',
     icon: 'DocumentPaper',
     path: '/activities',
   },
-  { label: 'Cửa hàng', icon: 'ShopHouse', path: '/store' },
+
   {
     label: 'Tài khoản',
     icon: 'Account',

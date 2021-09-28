@@ -74,6 +74,53 @@ const mocks = {
       },
     ],
   },
+  itemList: {
+    loading: false,
+    data: [
+      {
+        id: 1,
+        sellerId: 1,
+        sellerName: 'Pham Anh Dao',
+        address: 'Chung cư Lavita Garden, Đường số 3, Trường Thọ, Thủ Đức',
+        name: 'Chả giò',
+        imgUrl:
+          'https://giaoducnamchau.edu.vn/wp-content/uploads/2021/05/well-foods-microbiome-superJumbo.jpg',
+        status: 'Cho đặt trước',
+      },
+      {
+        id: 2,
+        sellerId: 1,
+        sellerName: 'Pham Anh Dao',
+        address: 'Chung cư Lavita Garden, Đường số 3, Trường Thọ, Thủ Đức',
+        name: 'Chả giò',
+        price: 100000,
+        currency: 'VND',
+        imgUrl:
+          'https://giaoducnamchau.edu.vn/wp-content/uploads/2021/05/well-foods-microbiome-superJumbo.jpg',
+        status: 'Cho đặt trước',
+      },
+      {
+        id: 3,
+        sellerId: 1,
+        sellerName: 'Pham Anh Dao',
+        address: 'Chung cư Lavita Garden, Đường số 3, Trường Thọ, Thủ Đức',
+        name: 'Chả giò',
+        imgUrl:
+          'https://giaoducnamchau.edu.vn/wp-content/uploads/2021/05/well-foods-microbiome-superJumbo.jpg',
+        status: 'Cho đặt trước',
+      },
+      {
+        id: 4,
+        sellerId: 1,
+        sellerName: 'Pham Anh Dao',
+        address: 'Chung cư Lavita Garden, Đường số 3, Trường Thọ, Thủ Đức',
+        name: 'Chả giò',
+        imgUrl:
+          'https://giaoducnamchau.edu.vn/wp-content/uploads/2021/05/well-foods-microbiome-superJumbo.jpg',
+        status: 'Cho đặt trước',
+      },
+    ],
+  },
   itemDetails: {
     loading: false,
     data: {

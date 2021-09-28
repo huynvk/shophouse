@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@mui/styles';
 import { Button, Typography } from '@mui/material';
 import { ItemCard } from 'components/Cards';
-import { ExpandedBox } from 'components/Layouts';
+import { ExpandedBox, VerticalSpacer } from 'components/Layouts';
 import LoadableList from 'components/LoadableList';
 import { useHistory } from 'react-router-dom';
 
@@ -36,18 +36,20 @@ const ItemList = (props) => {
       renderList={({ items }) => (
         <>
           {items.map(
-            ({ id, name, imgUrl, price, currency, status, hasLiked, ship }) => (
-              <CardWithMargin
-                key={id}
-                name={name}
-                imgUrl={imgUrl}
-                price={price}
-                currency={currency}
-                status={status}
-                hasLiked={hasLiked}
-                ship={ship}
-                onCardAction={() => history.push(`/item/${id}`)}
-              />
+            ({ id, name, imgUrl, sellerName, price, currency, address }) => (
+              <>
+                <CardWithMargin
+                  key={id}
+                  name={name}
+                  imgUrl={imgUrl}
+                  price={price}
+                  currency={currency}
+                  sellerName={sellerName}
+                  address={address}
+                  onCardAction={() => history.push(`/item/${id}`)}
+                />
+                <VerticalSpacer />
+              </>
             )
           )}
         </>

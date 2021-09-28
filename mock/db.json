@@ -24,101 +24,206 @@
   "items": [
     {
       "id": 1,
+      "sellerId": 1,
+      "sellerName": "Pham Anh Dao",
+      "address": "Chung cư Lavita Garden, Đường số 3, Trường Thọ, Thủ Đức",
       "name": "Chả giò",
       "imgUrl": "https://giaoducnamchau.edu.vn/wp-content/uploads/2021/05/well-foods-microbiome-superJumbo.jpg",
-      "price": 100000,
-      "currency": "VNĐ",
-      "status": "SẮP MỞ BÁN",
-      "hasLiked": true,
-      "likeCount": 12,
-      "description": "CHẢ GIÒ CUỐN bánh tráng xốp giòn. Nguyên liệu sạch lựa chọn kĩ lưỡng. Em tính qua tuần mới cuốn nhưng có vài chị đặt nên e nhận thêm 7 phần nữa ạ.",
-      "shopId": 1
+      "status": "Cho đặt trước",
+      "sellCondition": "Mở bán khi tổng đơn trên 3 triệu",
+      "statusDetails": "Mở bán lúc 11h thứ bảy 05/09/2021",
+      "menu": [
+        {
+          "name": "Chả giò",
+          "price": 100000,
+          "currency": "VNĐ",
+          "unit": "Hộp 20 cuốn"
+        },
+        {
+          "name": "Chả giò",
+          "price": 100000,
+          "currency": "VNĐ",
+          "unit": "Hộp 20 cuốn"
+        },
+        {
+          "name": "Chả giò",
+          "price": 100000,
+          "currency": "VNĐ",
+          "unit": "Hộp 20 cuốn"
+        },
+        {
+          "name": "Chả giò",
+          "price": 100000,
+          "currency": "VNĐ",
+          "unit": "Hộp 20 cuốn"
+        }
+      ],
+      "externalLink": {
+        "link": "https://huynvk.dev",
+        "title": "Chợ Online Lavita Garden",
+        "description": "Facebook Page"
+      },
+      "promotions": [
+        "Giảm 50.000 VNĐ cho hoá đơn trên 500.000 VNĐ",
+        "Miễn phí ship cho cư dân Lavita Garden",
+        "Miễn phí ship trong vòng 5km cho hoá đơn trên 300.000 VNĐ"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut nisi ut nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
       "id": 2,
-      "name": "Trái cây",
+      "sellerId": 1,
+      "sellerName": "Pham Anh Dao",
+      "address": "Chung cư Lavita Garden, Đường số 3, Trường Thọ, Thủ Đức",
+      "name": "Chả giò",
       "imgUrl": "https://giaoducnamchau.edu.vn/wp-content/uploads/2021/05/well-foods-microbiome-superJumbo.jpg",
-      "price": 145000,
-      "currency": "VNĐ",
-      "status": "SẮP MỞ BÁN",
-      "hasLiked": true,
-      "likeCount": 12,
-      "ship": "Thoả thuận",
-      "description": "CHẢ GIÒ CUỐN bánh tráng xốp giòn. Nguyên liệu sạch lựa chọn kĩ lưỡng. Em tính qua tuần mới cuốn nhưng có vài chị đặt nên e nhận thêm 7 phần nữa ạ.",
-      "shopId": 1
+      "status": "Cho đặt trước",
+      "sellCondition": "Mở bán khi tổng đơn trên 3 triệu",
+      "statusDetails": "Mở bán lúc 11h thứ bảy 05/09/2021",
+      "menu": [
+        {
+          "name": "Chả giò",
+          "price": 100000,
+          "currency": "VNĐ",
+          "unit": "Hộp 20 cuốn"
+        },
+        {
+          "name": "Chả giò",
+          "price": 100000,
+          "currency": "VNĐ",
+          "unit": "Hộp 20 cuốn"
+        },
+        {
+          "name": "Chả giò",
+          "price": 100000,
+          "currency": "VNĐ",
+          "unit": "Hộp 20 cuốn"
+        },
+        {
+          "name": "Chả giò",
+          "price": 100000,
+          "currency": "VNĐ",
+          "unit": "Hộp 20 cuốn"
+        }
+      ],
+      "externalLink": {
+        "link": "https://huynvk.dev",
+        "title": "Chợ Online Lavita Garden",
+        "description": "Facebook Page"
+      },
+      "promotions": [
+        "Giảm 50.000 VNĐ cho hoá đơn trên 500.000 VNĐ",
+        "Miễn phí ship cho cư dân Lavita Garden",
+        "Miễn phí ship trong vòng 5km cho hoá đơn trên 300.000 VNĐ"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut nisi ut nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
       "id": 3,
-      "name": "Bánh Karo",
+      "sellerId": 1,
+      "sellerName": "Pham Anh Dao",
+      "address": "Chung cư Lavita Garden, Đường số 3, Trường Thọ, Thủ Đức",
+      "name": "Chả giò",
       "imgUrl": "https://giaoducnamchau.edu.vn/wp-content/uploads/2021/05/well-foods-microbiome-superJumbo.jpg",
-      "price": 200000,
-      "currency": "VNĐ",
-      "status": "SẮP MỞ BÁN",
-      "hasLiked": false,
-      "likeCount": 12,
-      "description": "CHẢ GIÒ CUỐN bánh tráng xốp giòn. Nguyên liệu sạch lựa chọn kĩ lưỡng. Em tính qua tuần mới cuốn nhưng có vài chị đặt nên e nhận thêm 7 phần nữa ạ.",
-      "shopId": 1
+      "status": "Cho đặt trước",
+      "sellCondition": "Mở bán khi tổng đơn trên 3 triệu",
+      "statusDetails": "Mở bán lúc 11h thứ bảy 05/09/2021",
+      "menu": [
+        {
+          "name": "Chả giò",
+          "price": 100000,
+          "currency": "VNĐ",
+          "unit": "Hộp 20 cuốn"
+        },
+        {
+          "name": "Chả giò",
+          "price": 100000,
+          "currency": "VNĐ",
+          "unit": "Hộp 20 cuốn"
+        },
+        {
+          "name": "Chả giò",
+          "price": 100000,
+          "currency": "VNĐ",
+          "unit": "Hộp 20 cuốn"
+        },
+        {
+          "name": "Chả giò",
+          "price": 100000,
+          "currency": "VNĐ",
+          "unit": "Hộp 20 cuốn"
+        }
+      ],
+      "externalLink": {
+        "link": "https://huynvk.dev",
+        "title": "Chợ Online Lavita Garden",
+        "description": "Facebook Page"
+      },
+      "promotions": [
+        "Giảm 50.000 VNĐ cho hoá đơn trên 500.000 VNĐ",
+        "Miễn phí ship cho cư dân Lavita Garden",
+        "Miễn phí ship trong vòng 5km cho hoá đơn trên 300.000 VNĐ"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut nisi ut nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     },
     {
       "id": 4,
-      "name": "Trà sữa",
-      "imgUrl": "https://giaoducnamchau.edu.vn/wp-content/uploads/2021/05/well-foods-microbiome-superJumbo.jpg",
-      "price": 40000,
-      "currency": "VNĐ",
-      "status": "SẮP MỞ BÁN",
-      "hasLiked": false,
-      "likeCount": 12,
-      "description": "CHẢ GIÒ CUỐN bánh tráng xốp giòn. Nguyên liệu sạch lựa chọn kĩ lưỡng. Em tính qua tuần mới cuốn nhưng có vài chị đặt nên e nhận thêm 7 phần nữa ạ.",
-      "shopId": 1
-    },
-    {
-      "id": 5,
+      "sellerId": 1,
+      "sellerName": "Pham Anh Dao",
+      "address": "Chung cư Lavita Garden, Đường số 3, Trường Thọ, Thủ Đức",
       "name": "Chả giò",
       "imgUrl": "https://giaoducnamchau.edu.vn/wp-content/uploads/2021/05/well-foods-microbiome-superJumbo.jpg",
-      "price": 100000,
-      "currency": "VNĐ",
-      "status": "SẮP MỞ BÁN",
-      "hasLiked": true,
-      "likeCount": 12,
-      "description": "CHẢ GIÒ CUỐN bánh tráng xốp giòn. Nguyên liệu sạch lựa chọn kĩ lưỡng. Em tính qua tuần mới cuốn nhưng có vài chị đặt nên e nhận thêm 7 phần nữa ạ.",
-      "shopId": 2
-    },
+      "status": "Cho đặt trước",
+      "sellCondition": "Mở bán khi tổng đơn trên 3 triệu",
+      "statusDetails": "Mở bán lúc 11h thứ bảy 05/09/2021",
+      "menu": [
+        {
+          "name": "Chả giò",
+          "price": 100000,
+          "currency": "VNĐ",
+          "unit": "Hộp 20 cuốn"
+        },
+        {
+          "name": "Chả giò",
+          "price": 100000,
+          "currency": "VNĐ",
+          "unit": "Hộp 20 cuốn"
+        },
+        {
+          "name": "Chả giò",
+          "price": 100000,
+          "currency": "VNĐ",
+          "unit": "Hộp 20 cuốn"
+        },
+        {
+          "name": "Chả giò",
+          "price": 100000,
+          "currency": "VNĐ",
+          "unit": "Hộp 20 cuốn"
+        }
+      ],
+      "externalLink": {
+        "link": "https://huynvk.dev",
+        "title": "Chợ Online Lavita Garden",
+        "description": "Facebook Page"
+      },
+      "promotions": [
+        "Giảm 50.000 VNĐ cho hoá đơn trên 500.000 VNĐ",
+        "Miễn phí ship cho cư dân Lavita Garden",
+        "Miễn phí ship trong vòng 5km cho hoá đơn trên 300.000 VNĐ"
+      ],
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut nisi ut nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    }
+  ],
+  "users": [
     {
-      "id": 6,
-      "name": "Trái cây",
-      "imgUrl": "https://giaoducnamchau.edu.vn/wp-content/uploads/2021/05/well-foods-microbiome-superJumbo.jpg",
-      "price": 145000,
-      "currency": "VNĐ",
-      "status": "SẮP MỞ BÁN",
-      "hasLiked": true,
-      "likeCount": 12,
-      "ship": "Thoả thuận",
-      "description": "CHẢ GIÒ CUỐN bánh tráng xốp giòn. Nguyên liệu sạch lựa chọn kĩ lưỡng. Em tính qua tuần mới cuốn nhưng có vài chị đặt nên e nhận thêm 7 phần nữa ạ.",
-      "shopId": 2
-    },
-    {
-      "id": 7,
-      "name": "Bánh Karo",
-      "imgUrl": "https://giaoducnamchau.edu.vn/wp-content/uploads/2021/05/well-foods-microbiome-superJumbo.jpg",
-      "price": 200000,
-      "currency": "VNĐ",
-      "status": "SẮP MỞ BÁN",
-      "hasLiked": false,
-      "likeCount": 12,
-      "description": "CHẢ GIÒ CUỐN bánh tráng xốp giòn. Nguyên liệu sạch lựa chọn kĩ lưỡng. Em tính qua tuần mới cuốn nhưng có vài chị đặt nên e nhận thêm 7 phần nữa ạ.",
-      "shopId": 2
-    },
-    {
-      "id": 8,
-      "name": "Trà sữa",
-      "imgUrl": "https://giaoducnamchau.edu.vn/wp-content/uploads/2021/05/well-foods-microbiome-superJumbo.jpg",
-      "price": 40000,
-      "currency": "VNĐ",
-      "status": "SẮP MỞ BÁN",
-      "hasLiked": false,
-      "likeCount": 12,
-      "description": "CHẢ GIÒ CUỐN bánh tráng xốp giòn. Nguyên liệu sạch lựa chọn kĩ lưỡng. Em tính qua tuần mới cuốn nhưng có vài chị đặt nên e nhận thêm 7 phần nữa ạ.",
-      "shopId": 2
+      "id": 1,
+      "name": "Phạm Anh Đào",
+      "address": "Khu A, chung cư Lavita Garden, đường số 3, Trường Thọ, Thủ Đức, TP HCM",
+      "phone": "0389930747",
+      "zalo": "0389930747",
+      "messenger": "anhdaopta",
+      "website": "https://huynvk.dev"
     }
   ],
   "bookings": [
@@ -129,6 +234,14 @@
       "recipientPhone": "0988732761",
       "note": "Nhiều gấp đôi nha anh",
       "id": 2
+    },
+    {
+      "amount": 1,
+      "address": "231 XVNT, Phường 25, Q Bình Thạnh",
+      "recipient": "Huy",
+      "recipientPhone": "0988732761",
+      "note": "Nhiều gấp đôi nha anh",
+      "id": 3
     }
   ]
 }

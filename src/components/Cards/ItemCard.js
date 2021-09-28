@@ -1,103 +1,47 @@
 import PropTypes from 'prop-types';
-import {
-  Card,
-  CardActionArea,
-  CardContent,
-  CardMedia,
-  Chip,
-  IconButton,
-  Typography,
-} from '@mui/material';
-import Icon from 'components/Icons';
-import { withTheme } from '@mui/styles';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import { Card, CardActionArea, CardMedia, Typography } from '@mui/material';
 
-import { styled } from '@mui/system';
 import Row from 'components/Layouts/Row';
 import HorizontalSpacer from 'components/Layouts/HorizontalSpacer';
-
-const Container = styled('div')`
-  display: flex;
-`;
-
-const ContentContainer = styled('div')`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-`;
-
-const Head = styled('div')`
-  flex: 1;
-`;
-
-const Price = styled('div')`
-  display: flex;
-  justify-content: space-between;
-  align-self: 'stretch';
-`;
+import { WhiteCardContent } from '.';
+import InfoRow from 'pages/ItemDetails/InfoRow';
 
 const ItemCard = ({
-  theme,
   name,
   imgUrl,
+  sellerName,
   price,
   currency,
-  status,
-  hasLiked,
-  ship,
+  address,
   onCardAction,
-  ...props
 }) => (
-  <Card {...props}>
+  <Card>
     <CardActionArea onClick={onCardAction}>
-      <Container>
+      <WhiteCardContent>
         <CardMedia
           image={imgUrl}
           title={name}
           sx={{
-            width: '0',
-            paddingLeft: '40%',
-            paddingTop: '40%', // Minimum height is 40% of width
-            justifySelf: 'stretch',
+            width: '100px',
+            height: '100px',
+            float: 'right',
+            ml: 1,
+            mb: 1,
           }}
         />
-        <CardContent sx={{ flex: 1 }}>
-          <ContentContainer>
-            <Head>
-              <Price>
-                <Row>
-                  <Typography variant='h6'>{name}</Typography>
-                </Row>
-                <IconButton
-                  sx={{
-                    marginTop: theme.spacing(-1),
-                    marginRight: theme.spacing(-1),
-                  }}
-                  size='large'
-                >
-                  <FavoriteIcon color={hasLiked ? 'primary' : 'action'} />
-                </IconButton>
-              </Price>
-              <Row>
-                <Chip label={status} />
-              </Row>
-            </Head>
-            {ship && (
-              <Row>
-                <Icon icon='Ship' size='lg' />
-                <HorizontalSpacer />
-                <Typography>{ship}</Typography>
-              </Row>
-            )}
-            <Row mb={0}>
-              <Icon icon='Price' size='lg' />
-              <HorizontalSpacer />
-              <Typography>{`${price} ${currency}`}</Typography>
-            </Row>
-          </ContentContainer>
-        </CardContent>
-      </Container>
+        <Typography variant='h6' component='h1'>
+          {name}
+        </Typography>
+        <Row mb={0.5}>
+          <Typography variant='subtitle2' color='GrayText'>
+            {sellerName}
+          </Typography>
+          <HorizontalSpacer size={0.5} />
+        </Row>
+        {price && <InfoRow icon='Price'>{`${price} ${currency}`}</InfoRow>}
+        <InfoRow icon='Location'>{address}</InfoRow>
+        <div style={{ clear: 'both' }} />
+      </WhiteCardContent>
     </CardActionArea>
   </Card>
 );
@@ -105,12 +49,11 @@ const ItemCard = ({
 ItemCard.propTypes = {
   name: PropTypes.string,
   imgUrl: PropTypes.string,
+  sellerName: PropTypes.string,
   price: PropTypes.number,
   currency: PropTypes.string,
-  status: PropTypes.string,
-  hasLiked: PropTypes.bool,
-  ship: PropTypes.string,
-  onCardAction: PropTypes.func,
+  address: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
-export default withTheme(ItemCard);
+export default ItemCard;

@@ -1,15 +1,9 @@
-import {
-  Card,
-  CardContent,
-  Typography,
-  List,
-  ListItem,
-  ListItemText,
-} from '@mui/material';
+import { Typography, List, ListItem, ListItemText, Card } from '@mui/material';
+import { WhiteCardContent } from 'components/Cards';
 
 const Menu = ({ menu }) => (
   <Card>
-    <CardContent sx={{ background: 'white' }}>
+    <WhiteCardContent>
       <Typography variant='h6'>Bảng giá</Typography>
       <List>
         {menu.map(({ name: menuItemName, price, unit, currency }, i) => (
@@ -21,7 +15,7 @@ const Menu = ({ menu }) => (
           </ListItem>
         ))}
       </List>
-    </CardContent>
+    </WhiteCardContent>
   </Card>
 );
 

@@ -1,15 +1,9 @@
-import {
-  Card,
-  CardContent,
-  Typography,
-  List,
-  ListItem,
-  ListItemText,
-} from '@mui/material';
+import { Card, Typography, List, ListItem, ListItemText } from '@mui/material';
+import { WhiteCardContent } from 'components/Cards';
 
 const Promotions = ({ promotions }) => (
   <Card>
-    <CardContent sx={{ background: 'white' }}>
+    <WhiteCardContent>
       <Typography variant='h6'>Ưu đãi</Typography>
       {promotions && promotions.length > 0 ? (
         <List>
@@ -24,7 +18,7 @@ const Promotions = ({ promotions }) => (
           Tạm thời đã hết ưu đãi cho sản phẩm này
         </Typography>
       )}
-    </CardContent>
+    </WhiteCardContent>
   </Card>
 );
 

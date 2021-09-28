@@ -20,19 +20,6 @@ Default.args = {
     'https://giaoducnamchau.edu.vn/wp-content/uploads/2021/05/well-foods-microbiome-superJumbo.jpg',
   price: 100000,
   currency: 'VNĐ',
-  status: 'SẮP MỞ BÁN',
-  hasLiked: true,
-  ship: '',
-};
-
-export const WithShippingFee = Template.bind({});
-WithShippingFee.args = {
-  name: 'Chả giò',
-  imgUrl:
-    'https://giaoducnamchau.edu.vn/wp-content/uploads/2021/05/well-foods-microbiome-superJumbo.jpg',
-  price: 100000,
-  currency: 'VNĐ',
-  status: 'SẮP MỞ BÁN',
-  hasLiked: true,
-  ship: 'Thoả thuận',
+  sellerName: 'Pham Anh Dao',
+  address: 'Chung cư Lavita Garden, Trường Thọ, Thủ Đức, TP HCM',
 };
