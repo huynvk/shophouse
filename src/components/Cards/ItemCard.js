@@ -5,13 +5,32 @@ import Row from 'components/Layouts/Row';
 import HorizontalSpacer from 'components/Layouts/HorizontalSpacer';
 import { WhiteCardContent } from '.';
 import InfoRow from 'pages/ItemDetails/InfoRow';
+import { localizeNumber } from 'common/transform';
+
+// @TODO: current implementation assumpt prices has same currencies
+const calculatePriceRange = (prices) => {
+  if (!prices.length) {
+    return `0 VNĐ`;
+  }
+  const { currency, price } = prices[0];
+
+  let min = price,
+    max = price;
+  prices.forEach(({ price }) => {
+    if (price < min) min = price;
+    if (price > max) max = price;
+  });
+
+  return min === max
+    ? `${localizeNumber(min)} ${currency}`
+    : `${localizeNumber(min)} ${currency} - ${localizeNumber(max)} ${currency}`;
+};
 
 const ItemCard = ({
   name,
   imgUrl,
   sellerName,
-  price,
-  currency,
+  prices,
   address,
   onCardAction,
 }) => (
@@ -38,7 +57,9 @@ const ItemCard = ({
           </Typography>
           <HorizontalSpacer size={0.5} />
         </Row>
-        {price && <InfoRow icon='Price'>{`${price} ${currency}`}</InfoRow>}
+        {prices && (
+          <InfoRow icon='Price'>{calculatePriceRange(prices)}</InfoRow>
+        )}
         <InfoRow icon='Location'>{address}</InfoRow>
         <div style={{ clear: 'both' }} />
       </WhiteCardContent>

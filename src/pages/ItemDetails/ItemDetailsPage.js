@@ -18,6 +18,7 @@ import ContactPad from './ContactPad';
 import Promotions from './Promotions';
 import Menu from './Menu';
 import { ArrowBack, Share } from '@mui/icons-material';
+import { localizeNumber, localizeProductStatus } from 'common/transform';
 
 const Header = ({ shareData }) => (
   <Box pl={1} pr={1} bgcolor='white' display='flex'>
@@ -53,7 +54,7 @@ const ItemDetailsPage = () => {
     description,
     imgUrl,
     sellCondition,
-    menu,
+    prices,
     externalLink,
     promotions,
     sellerId,
@@ -67,9 +68,11 @@ const ItemDetailsPage = () => {
     seller || {};
 
   const price =
-    menu && menu.length === 1
-      ? `${menu[0].price} ${menu[0].currency}`
+    prices && prices.length === 1
+      ? `${localizeNumber(prices[0].price)} ${prices[0].currency}`
       : undefined;
+
+  console.log('referrer', document.referrer);
 
   return (
     <VerticalLayout
@@ -108,12 +111,14 @@ const ItemDetailsPage = () => {
               {sellerName}
             </Typography>
             <HorizontalSpacer size={0.5} />
-            <Chip label={status} size='small' />
+            <Chip label={localizeProductStatus(status)} size='small' />
           </Loadable>
         </Row>
-        <InfoRow icon='Calendar' loading={loadingItem}>
-          <Typography color='primary'>{sellCondition}</Typography>
-        </InfoRow>
+        {sellCondition && (
+          <InfoRow icon='Calendar'>
+            <Typography color='primary'>{sellCondition}</Typography>
+          </InfoRow>
+        )}
         {price && <InfoRow icon='Price'>{price}</InfoRow>}
         <InfoRow icon='Location' loading={loadingItem || loadingSeller}>
           {address}
@@ -146,10 +151,10 @@ const ItemDetailsPage = () => {
         <Loadable size='lg' loading={loadingItem}>
           <Promotions promotions={promotions} />
         </Loadable>
-        {!loadingItem && menu && menu.length > 1 && (
+        {!loadingItem && prices && prices.length > 1 && (
           <>
             <VerticalSpacer />
-            <Menu menu={menu} />
+            <Menu prices={prices} />
           </>
         )}
 

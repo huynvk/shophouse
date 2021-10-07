@@ -19,6 +19,7 @@ const CardWithMargin = (props) => {
 
 const ItemList = (props) => {
   const history = useHistory();
+  console.log(history);
   return (
     <LoadableList
       renderEmptyState={() => (
@@ -35,23 +36,20 @@ const ItemList = (props) => {
       )}
       renderList={({ items }) => (
         <>
-          {items.map(
-            ({ id, name, imgUrl, sellerName, price, currency, address }) => (
-              <>
-                <CardWithMargin
-                  key={id}
-                  name={name}
-                  imgUrl={imgUrl}
-                  price={price}
-                  currency={currency}
-                  sellerName={sellerName}
-                  address={address}
-                  onCardAction={() => history.push(`/item/${id}`)}
-                />
-                <VerticalSpacer />
-              </>
-            )
-          )}
+          {items.map(({ id, name, imgUrl, seller, prices, address }) => (
+            <>
+              <CardWithMargin
+                key={id}
+                name={name}
+                imgUrl={imgUrl}
+                prices={prices}
+                sellerName={seller?.name}
+                address={seller?.address}
+                onCardAction={() => history.push(`/item/${id}`)}
+              />
+              <VerticalSpacer />
+            </>
+          ))}
         </>
       )}
       {...props}

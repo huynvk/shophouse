@@ -10,7 +10,7 @@ const InfoRow = ({ icon, children, loading }) => {
       <HorizontalSpacer />
       <Loadable loading={loading}>
         {typeof children === 'string' ? (
-          <Typography>{children}</Typography>
+          <Typography color='GrayText'>{children}</Typography>
         ) : (
           children || <div />
         )}

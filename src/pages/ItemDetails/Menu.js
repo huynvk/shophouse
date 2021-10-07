@@ -1,17 +1,18 @@
 import { Typography, List, ListItem, ListItemText, Card } from '@mui/material';
+import { localizeNumber } from 'common/transform';
 import { WhiteCardContent } from 'components/Cards';
 
-const Menu = ({ menu }) => (
+const Menu = ({ prices }) => (
   <Card>
     <WhiteCardContent>
       <Typography variant='h6'>Bảng giá</Typography>
       <List>
-        {menu.map(({ name: menuItemName, price, unit, currency }, i) => (
+        {prices.map(({ price, unit, currency }, i) => (
           <ListItem key={i}>
-            <ListItemText>{menuItemName}</ListItemText>
-            <ListItemText align='right'>
-              {unit ? `${price} ${currency} / ${unit}` : `${price} ${currency}`}
-            </ListItemText>
+            <ListItemText>{unit}</ListItemText>
+            <ListItemText align='right'>{`${localizeNumber(
+              price
+            )} ${currency}`}</ListItemText>
           </ListItem>
         ))}
       </List>

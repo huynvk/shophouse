@@ -7,13 +7,13 @@ export const useShopDetails = (shopId, params) =>
   useGetWithCustomMock('shopDetails', { path: `/shops/${shopId}` });
 
 export const useShopItems = (shopId, params) =>
-  useGetWithCustomMock('shopItems', { path: `/items/?shop=${shopId}` });
+  useGetWithCustomMock('shopItems', { path: `/products/?shop=${shopId}` });
 
 export const useItemList = (params) =>
-  useGetWithCustomMock('itemList', { path: `/items` });
+  useGetWithCustomMock('itemList', { path: `/products` });
 
 export const useItemDetails = (itemId, params) =>
-  useGetWithCustomMock('itemDetails', { path: `/items/${itemId}` });
+  useGetWithCustomMock('itemDetails', { path: `/products/${itemId}` });
 
 export const useUser = (userId, params) =>
   useGetWithCustomMock('user', { path: `/users/${userId}` });
